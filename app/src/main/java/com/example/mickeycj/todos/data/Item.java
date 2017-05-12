@@ -29,6 +29,8 @@ public class Item implements Parcelable {
 
     public void setDone(boolean done) { this.done = done; }
 
+    public void markAsDone() { setDone(true); }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
