@@ -3,4 +3,14 @@
     <string name="partial_app_name_1">Todos</string>
     <string name="app_name_partial_2">App</string>
     <string name="start">Start</string>
+    <string name="login_tab">LOGIN</string>
+    <string name="signup_tab">SIGN-UP</string>
+    <string name="login">GO!</string>
+    <string name="signup">Sign-up</string>
+    <string name="email">Email</string>
+    <string name="hint_email">example@gmail.com</string>
+    <string name="username">Username</string>
+    <string name="hint_username">username1234</string>
+    <string name="password">Password</string>
+    <string name="hint_password">********</string>
 </resources>
