@@ -28,5 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="175dp"
-        android:layout_marginTop="375dp" />
+        android:layout_marginTop="375dp"
+        android:onClick="onStartClick" />
 </RelativeLayout>
