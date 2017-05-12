@@ -10,6 +10,10 @@ public interface LoginView {
 
     String getPasswordFromEditText();
 
+    void setEmailEditText(String text);
+
+    void setPasswordEditText(String text);
+
     void clearEmailEditText();
 
     void clearPasswordEditText();

@@ -49,9 +49,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         if (user != null) {
             // TODO Go to user's todo list page
 
-        } else {
-            clearEmailEditText();
-            clearPasswordEditText();
         }
     }
 
@@ -62,8 +59,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     public String getPasswordFromEditText() { return passwordEditText.getText().toString(); }
 
     @Override
-    public void clearEmailEditText() { emailEditText.setText(""); }
+    public void setEmailEditText(String text) { emailEditText.setText(text); }
 
     @Override
-    public void clearPasswordEditText() { passwordEditText.setText(""); }
+    public void setPasswordEditText(String text) { passwordEditText.setText(text); }
+
+    @Override
+    public void clearEmailEditText() { setEmailEditText(""); }
+
+    @Override
+    public void clearPasswordEditText() { setPasswordEditText(""); }
 }

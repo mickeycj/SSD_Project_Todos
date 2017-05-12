@@ -17,13 +17,23 @@ public class LoginPresenter {
         this.view = view;
     }
 
-    public void start() {
+    public void start() { clearEditTexts(); }
+
+    public void setEmailEditText(String text) { view.setEmailEditText(text); }
+
+    public void setPasswordEditText(String text) { view.setPasswordEditText(text); }
+
+    public void clearEditTexts() {
         view.clearEmailEditText();
         view.clearPasswordEditText();
     }
 
     public User onLoginClick() {
         User user = database.getUser(view.getEmailFromEditText());
-        return (view.getPasswordFromEditText().equals(user.getPassword())) ? user : null;
+        if (user == null || !view.getPasswordFromEditText().equals(user.getPassword())) {
+            clearEditTexts();
+            return null;
+        }
+        return user;
     }
 }
