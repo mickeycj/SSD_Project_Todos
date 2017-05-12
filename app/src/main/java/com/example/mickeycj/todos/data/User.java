@@ -11,25 +11,25 @@ import java.util.ArrayList;
 
 public class User implements Parcelable {
 
-    private final String email;
-    private final String username;
-    private final String password;
-    private ArrayList<Todo> todos;
+        private final String email;
+        private final String username;
+        private final String password;
+        private ArrayList<Todo> todos;
 
     public User(String email, String username, String password) {
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.todos = new ArrayList<>();
-    }
+            this.email = email;
+            this.username = username;
+            this.password = password;
+            this.todos = new ArrayList<>();
+        }
 
     public User(Parcel in) {
-        this.email = in.readString();
-        this.username = in.readString();
-        this.password = in.readString();
-        this.todos = new ArrayList<>();
-        in.readList(this.todos, Todo.class.getClassLoader());
-    }
+            this.email = in.readString();
+            this.username = in.readString();
+            this.password = in.readString();
+            this.todos = new ArrayList<>();
+            in.readList(this.todos, Todo.class.getClassLoader());
+        }
 
     public String getEmail() { return email; }
 
