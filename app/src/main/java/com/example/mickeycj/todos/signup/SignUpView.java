@@ -14,6 +14,14 @@ public interface SignUpView {
 
     String getPasswordConfirmationFromEditText();
 
+    void setEmailEditText(String text);
+
+    void setUsernameEditText(String text);
+
+    void setPasswordEditText(String text);
+
+    void setConfirmPasswordEditText(String text);
+
     void clearEmailEditText();
 
     void clearUsernameEditText();

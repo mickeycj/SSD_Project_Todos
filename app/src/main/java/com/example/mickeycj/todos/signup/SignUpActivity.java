@@ -54,11 +54,6 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     public void onSignUpClick(View view) {
         if (presenter.onSignUpClick()) {
             startLoginActivity();
-        } else {
-            clearEmailEditText();
-            clearUsernameEditText();
-            clearPasswordEditText();
-            clearConfirmPasswordEditText();
         }
     }
 
@@ -75,14 +70,26 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     public String getPasswordConfirmationFromEditText() { return confirmPasswordEditText.getText().toString(); }
 
     @Override
-    public void clearEmailEditText() { emailEditText.setText(""); }
+    public void setEmailEditText(String text) { emailEditText.setText(text); }
 
     @Override
-    public void clearUsernameEditText() { usernameEditText.setText(""); }
+    public void setUsernameEditText(String text) { usernameEditText.setText(text); }
 
     @Override
-    public void clearPasswordEditText() { passwordEditText.setText(""); }
+    public void setPasswordEditText(String text) { passwordEditText.setText(text); }
 
     @Override
-    public void clearConfirmPasswordEditText() { confirmPasswordEditText.setText(""); }
+    public void setConfirmPasswordEditText(String text) { confirmPasswordEditText.setText(text); }
+
+    @Override
+    public void clearEmailEditText() { setEmailEditText(""); }
+
+    @Override
+    public void clearUsernameEditText() { setUsernameEditText(""); }
+
+    @Override
+    public void clearPasswordEditText() { setPasswordEditText(""); }
+
+    @Override
+    public void clearConfirmPasswordEditText() { setConfirmPasswordEditText(""); }
 }

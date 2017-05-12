@@ -1,4 +1,4 @@
-package com.example.mickeycj.todos.login;
+package com.example.mickeycj.todos.signup;
 
 import com.example.mickeycj.todos.data.LocalDatabase;
 
@@ -14,17 +14,17 @@ import static org.mockito.Mockito.inOrder;
  * Created by mickeycj on 12/5/2560.
  */
 
-public class LoginPresenterTest {
+public class SignUpPresenterTest {
 
-    private LoginPresenter presenter;
+    private SignUpPresenter presenter;
 
     @Mock
-    private LoginView view;
+    private SignUpView view;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        presenter = new LoginPresenter(LocalDatabase.getInstance(), view);
+        presenter = new SignUpPresenter(LocalDatabase.getInstance(), view);
     }
 
     @Test
@@ -32,7 +32,9 @@ public class LoginPresenterTest {
         presenter.start();
         InOrder order = inOrder(view);
         order.verify(view).clearEmailEditText();
+        order.verify(view).clearUsernameEditText();
         order.verify(view).clearPasswordEditText();
+        order.verify(view).clearConfirmPasswordEditText();
     }
 
     @Test
@@ -40,6 +42,8 @@ public class LoginPresenterTest {
         presenter.clearEditTexts();
         InOrder order = inOrder(view);
         order.verify(view).clearEmailEditText();
+        order.verify(view).clearUsernameEditText();
         order.verify(view).clearPasswordEditText();
+        order.verify(view).clearConfirmPasswordEditText();
     }
 }
