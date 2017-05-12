@@ -1,5 +1,6 @@
 package com.example.mickeycj.todos.login;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import com.example.mickeycj.todos.R;
 import com.example.mickeycj.todos.data.Database;
 import com.example.mickeycj.todos.data.User;
 import com.example.mickeycj.todos.main.MainActivity;
+import com.example.mickeycj.todos.signup.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -27,6 +29,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         presenter = new LoginPresenter(database, this);
 
         initViewHolders();
+
+        presenter.start();
     }
 
     private void initViewHolders() {
@@ -35,8 +39,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     public void onSignUpTabClick(View view) {
-        // TODO Start SignUpActivity
-
+        Intent signUpIntent = new Intent(this, SignUpActivity.class);
+        startActivity(signUpIntent);
     }
 
     public void onLoginClick(View view) {

@@ -17,6 +17,11 @@ public class LoginPresenter {
         this.view = view;
     }
 
+    public void start() {
+        view.clearEmailEditText();
+        view.clearPasswordEditText();
+    }
+
     public User onLoginClick() {
         User user = database.getUser(view.getEmailFromEditText());
         return (view.getPasswordFromEditText().equals(user.getPassword())) ? user : null;
