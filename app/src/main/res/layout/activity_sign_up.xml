@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_sign_up"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp">
+
+        <Button
+            android:text="@string/login_tab"
+            android:textSize="13pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="220dp"
+            android:layout_marginLeft="15dp"
+            android:onClick="onLoginTabClick" />
+
+        <Button
+            android:text="@string/signup_tab"
+            android:textSize="13pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="220dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textview_signup_email"
+        android:text="@string/email"
+        android:textSize="12pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="100dp" />
+
+    <EditText
+        android:id="@+id/edittext_signup_email"
+        android:inputType="textEmailAddress"
+        android:hint="@string/hint_email"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/textview_signup_email" />
+
+    <TextView
+        android:id="@+id/textview_signup_username"
+        android:text="@string/username"
+        android:textSize="12pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@id/edittext_signup_email" />
+
+    <EditText
+        android:id="@+id/edittext_signup_username"
+        android:hint="@string/hint_username"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@id/textview_signup_username" />
+
+    <TextView
+        android:id="@+id/textview_signup_password"
+        android:text="@string/password"
+        android:textSize="12pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@id/edittext_signup_username" />
+
+    <EditText
+        android:id="@+id/edittext_signup_password"
+        android:inputType="textPassword"
+        android:hint="@string/hint_password"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/textview_signup_password" />
+
+    <TextView
+        android:id="@+id/textview_signup_confirm_password"
+        android:text="@string/confirm_password"
+        android:textSize="12pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@id/edittext_signup_password" />
+
+    <EditText
+        android:id="@+id/edittext_signup_confirm_password"
+        android:inputType="textPassword"
+        android:hint="@string/hint_password"
+        android:textSize="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/textview_signup_confirm_password" />
+
+    <Button
+        android:text="@string/signup"
+        android:textSize="15pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_below="@id/edittext_signup_confirm_password"
+        android:onClick="onSignUpClick" />
+</RelativeLayout>
