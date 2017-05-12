@@ -41,15 +41,19 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         confirmPasswordEditText = (EditText) findViewById(R.id.edittext_signup_confirm_password);
     }
 
-    public void onLoginTabClick(View view) {
+    private void startLoginActivity() {
         Intent loginIntent = new Intent(this, LoginActivity.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(loginIntent);
+    }
+
+    public void onLoginTabClick(View view) {
+        startLoginActivity();
     }
 
     public void onSignUpClick(View view) {
         if (presenter.onSignUpClick()) {
-            Intent loginIntent = new Intent(this, LoginActivity.class);
-            startActivity(loginIntent);
+            startLoginActivity();
         } else {
             clearEmailEditText();
             clearUsernameEditText();

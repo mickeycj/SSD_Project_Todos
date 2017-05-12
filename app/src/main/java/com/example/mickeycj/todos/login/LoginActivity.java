@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     public void onSignUpTabClick(View view) {
         Intent signUpIntent = new Intent(this, SignUpActivity.class);
+        signUpIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(signUpIntent);
     }
 
