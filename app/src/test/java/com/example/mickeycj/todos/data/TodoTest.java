@@ -1,7 +1,4 @@
-package com.example.mickeycj.todos;
-
-import com.example.mickeycj.todos.data.Item;
-import com.example.mickeycj.todos.data.Todo;
+package com.example.mickeycj.todos.data;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +12,8 @@ import static org.junit.Assert.assertTrue;
  */
 
 public class TodoTest {
-    Todo todo;
+
+    private Todo todo;
 
     @Before
     public void setUp() { todo = new Todo("Test todo"); }

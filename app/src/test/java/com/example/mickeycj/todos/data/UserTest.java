@@ -1,8 +1,4 @@
-package com.example.mickeycj.todos;
-
-import com.example.mickeycj.todos.data.Item;
-import com.example.mickeycj.todos.data.Todo;
-import com.example.mickeycj.todos.data.User;
+package com.example.mickeycj.todos.data;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +12,8 @@ import static org.junit.Assert.assertTrue;
  */
 
 public class UserTest {
-    User user;
+
+    private User user;
 
     @Before
     public void setUp() { user = new User("test@gmail.com", "Test", "12345678"); }

@@ -1,9 +1,4 @@
-package com.example.mickeycj.todos;
-
-import com.example.mickeycj.todos.data.AbstractDatabase;
-import com.example.mickeycj.todos.data.Database;
-import com.example.mickeycj.todos.data.LocalDatabase;
-import com.example.mickeycj.todos.data.User;
+package com.example.mickeycj.todos.data;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +14,8 @@ import static org.junit.Assert.assertNotEquals;
  */
 
 public class LocalDatabaseTest {
-    Database database;
+
+    private Database database;
 
     @Before
     public void setUp() throws NoSuchFieldException, IllegalAccessException {

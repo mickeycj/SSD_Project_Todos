@@ -1,6 +1,4 @@
-package com.example.mickeycj.todos;
-
-import com.example.mickeycj.todos.data.Item;
+package com.example.mickeycj.todos.data;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +11,8 @@ import static org.junit.Assert.assertTrue;
  */
 
 public class ItemTest {
-    Item item;
+
+    private Item item;
 
     @Before
     public void setUp() { item = new Item("Test item"); }
