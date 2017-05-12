@@ -41,6 +41,8 @@ public class User implements Parcelable {
 
     public Todo getTodo(int index) { return todos.get(index); }
 
+    public int numTodos() { return todos.size(); }
+
     public void addTodo(Todo todo) { todos.add(todo); }
 
     public void editTodo(int index, String name) { todos.get(index).setName(name); }
@@ -51,7 +53,11 @@ public class User implements Parcelable {
 
     public void editItemOf(int todoIndex, int itemIndex, String name) { todos.get(todoIndex).editItem(itemIndex, name); }
 
+    public void markItemAsDone(int todoIndex, int itemIndex) { todos.get(todoIndex).markItemAsDone(itemIndex); }
+
     public void deleteItemFrom(int todoIndex, int itemIndex) { todos.get(todoIndex).deleteItem(itemIndex); }
+
+    public void clearTodos() { todos.clear(); }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
