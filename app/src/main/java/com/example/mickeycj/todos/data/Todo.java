@@ -41,6 +41,10 @@ public class Todo implements Parcelable {
 
     public void setName(String name) { this.name = name; }
 
+    public int numItems() { return items.size(); }
+
+    public Item getItem(int index) { return items.get(index); }
+
     public void addItem(Item item) { items.add(item); }
 
     public void editItem(int index, String name) { items.get(index).setName(name); }
@@ -48,6 +52,8 @@ public class Todo implements Parcelable {
     public void markItemAsDone(int index) { items.get(index).markAsDone(); }
 
     public void deleteItem(int index) { items.remove(index); }
+
+    public void clearItems() { items.clear(); }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
