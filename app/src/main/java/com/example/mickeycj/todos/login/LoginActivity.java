@@ -8,8 +8,8 @@ import android.widget.EditText;
 
 import com.example.mickeycj.todos.R;
 import com.example.mickeycj.todos.data.Database;
+import com.example.mickeycj.todos.data.LocalDatabase;
 import com.example.mickeycj.todos.data.User;
-import com.example.mickeycj.todos.main.MainActivity;
 import com.example.mickeycj.todos.signup.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        database = MainActivity.database;
+        database = LocalDatabase.getInstance();
         presenter = new LoginPresenter(database, this);
 
         initViewHolders();

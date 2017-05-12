@@ -6,13 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mickeycj.todos.R;
-import com.example.mickeycj.todos.data.Database;
-import com.example.mickeycj.todos.data.LocalDatabase;
 import com.example.mickeycj.todos.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static final Database database = LocalDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

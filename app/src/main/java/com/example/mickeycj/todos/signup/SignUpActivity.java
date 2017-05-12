@@ -8,8 +8,8 @@ import android.widget.EditText;
 
 import com.example.mickeycj.todos.R;
 import com.example.mickeycj.todos.data.Database;
+import com.example.mickeycj.todos.data.LocalDatabase;
 import com.example.mickeycj.todos.login.LoginActivity;
-import com.example.mickeycj.todos.main.MainActivity;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
@@ -26,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        database = MainActivity.database;
+        database = LocalDatabase.getInstance();
         presenter = new SignUpPresenter(database, this);
 
         initViewHolders();
