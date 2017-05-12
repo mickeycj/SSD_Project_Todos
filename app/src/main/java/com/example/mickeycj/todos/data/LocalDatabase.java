@@ -27,7 +27,7 @@ public class LocalDatabase extends AbstractDatabase {
         users.put(user1.getEmail(), user1);
         User user2 = new User("barry@starlabs.com", "barry", "12345678");
         Todo todo21 = new Todo("Save Iris");
-        Todo todo22 = new Todo("Eat Big Belly Burgurs");
+        Todo todo22 = new Todo("Eat Big Belly Burgers");
         user2.addTodo(todo21);
         user2.addTodo(todo22);
         user2.addItemTo(0, new Item("Steal power cell for Speedforce Bazooka"));
