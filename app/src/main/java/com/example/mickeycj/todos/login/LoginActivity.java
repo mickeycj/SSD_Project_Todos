@@ -11,6 +11,7 @@ import com.example.mickeycj.todos.data.Database;
 import com.example.mickeycj.todos.data.LocalDatabase;
 import com.example.mickeycj.todos.data.User;
 import com.example.mickeycj.todos.signup.SignUpActivity;
+import com.example.mickeycj.todos.todos.TodosActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -47,8 +48,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     public void onLoginClick(View view) {
         User user = presenter.onLoginClick();
         if (user != null) {
-            // TODO Go to user's todo list page
-
+            Intent userIntent = new Intent(this, TodosActivity.class);
+            userIntent.putExtra("user", user);
+            startActivity(userIntent);
         }
     }
 

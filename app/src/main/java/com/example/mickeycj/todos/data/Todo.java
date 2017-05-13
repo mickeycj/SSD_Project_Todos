@@ -56,6 +56,9 @@ public class Todo implements Parcelable {
     public void clearItems() { items.clear(); }
 
     @Override
+    public String toString() { return name; }
+
+    @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(createdAt);
         dest.writeString(name);

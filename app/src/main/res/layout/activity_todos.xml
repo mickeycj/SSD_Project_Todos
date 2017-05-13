@@ -10,6 +10,7 @@
         android:layout_marginTop="25dp">
 
         <TextView
+            android:id="@+id/textview_username"
             android:text="Username"
             android:textSize="18pt"
             android:layout_width="match_parent"
@@ -22,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
-            android:layout_marginLeft="300dp" />
+            android:layout_marginLeft="300dp"
+            android:onClick="onAddTodoClick" />
     </RelativeLayout>
 
     <ListView
