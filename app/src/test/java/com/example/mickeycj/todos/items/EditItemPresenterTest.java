@@ -1,5 +1,6 @@
-package com.example.mickeycj.todos.todos;
+package com.example.mickeycj.todos.items;
 
+import com.example.mickeycj.todos.data.Item;
 import com.example.mickeycj.todos.data.Todo;
 import com.example.mickeycj.todos.data.User;
 
@@ -12,37 +13,38 @@ import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.inOrder;
 
 /**
- * Created by mickeycj on 14/5/2560.
+ * Created by user on 14/5/60.
  */
 
-public class EditTodoPresenterTest {
+public class EditItemPresenterTest {
 
-    private EditTodoPresenter presenter;
+    private EditItemPresenter presenter;
 
     @Mock
-    private EditTodoView view;
+    private EditItemView view;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         User user = new User("test@gmail.com", "test", "password");
         user.addTodo(new Todo("Test todo", false));
-        presenter = new EditTodoPresenter(user, 0, view);
+        user.addItemTo(0, new Item("Test item"));
+        presenter = new EditItemPresenter(user, 0, 0, view);
     }
 
     @Test
     public void shouldSetEditTextAndCheckboxAfterStart() {
         presenter.start();
         InOrder order = inOrder(view);
-        order.verify(view).setTodoNameEditText();
-        order.verify(view).setImportantCheckBox();
+        order.verify(view).setItemNameEditText();
+        order.verify(view).setDoneCheckbox();
     }
 
     @Test
     public void shouldGetValuesFromEditTextAndCheckboxAfterSubmit() {
         presenter.submit();
         InOrder order = inOrder(view);
-        order.verify(view).getTodoNameFromEditText();
-        order.verify(view).isImportantCheckboxChecked();
+        order.verify(view).getItemNameFromEditText();
+        order.verify(view).isDoneCheckboxChecked();
     }
 }
