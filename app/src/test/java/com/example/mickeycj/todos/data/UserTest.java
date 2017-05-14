@@ -101,10 +101,13 @@ public class UserTest {
         user.addItemTo(0, new Item("Test item 1"));
         user.addItemTo(0, new Item("Test item 2"));
         user.addItemTo(0, new Item("Test item 3"));
-        user.editItemOf(0, 1, "Test item 2 - Edited");
+        user.editItemOf(0, 1, "Test item 2 - Edited", true);
         assertEquals("Test item 1", user.getTodo(0).getItem(0).getName());
+        assertFalse(user.getTodo(0).getItem(0).isDone());
         assertNotEquals("Test item 2", user.getTodo(0).getItem(1).getName());
+        assertTrue(user.getTodo(0).getItem(1).isDone());
         assertEquals("Test item 3", user.getTodo(0).getItem(2).getName());
+        assertFalse(user.getTodo(0).getItem(1).isDone());
     }
 
     @Test

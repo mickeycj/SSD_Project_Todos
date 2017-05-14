@@ -52,10 +52,13 @@ public class TodoTest {
         todo.addItem(new Item("Test item 1"));
         todo.addItem(new Item("Test item 2"));
         todo.addItem(new Item("Test item 3"));
-        todo.editItem(1, "Test item 2 - Edited");
+        todo.editItem(1, "Test item 2 - Edited", true);
         assertEquals("Test item 1", todo.getItem(0).getName());
+        assertFalse(todo.getItem(0).isDone());
         assertNotEquals("Test item 2", todo.getItem(1).getName());
+        assertTrue(todo.getItem(1).isDone());
         assertEquals("Test item 3", todo.getItem(2).getName());
+        assertFalse(todo.getItem(2).isDone());
     }
 
     @Test
