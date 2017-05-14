@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_add_todo"
+    android:id="@+id/activity_edit_todo"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textview_add_todo"
-        android:text="@string/add_todo"
+        android:id="@+id/textview_edit_todo"
+        android:text="@string/edit_todo"
         android:textSize="20pt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true" />
-    
+
     <EditText
-        android:id="@+id/edittext_new_todo_name"
-        android:hint="@string/hint_todo_name"
+        android:id="@+id/edittext_edit_todo_name"
+        android:hint="@string/hint_edit_todo_name"
         android:textSize="15pt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="75dp"
-        android:layout_below="@id/textview_add_todo" />
+        android:layout_below="@id/textview_edit_todo" />
 
     <CheckBox
-        android:id="@+id/checkbox_new_todo_important"
+        android:id="@+id/checkbox_edit_todo_important"
         android:text="@string/important"
         android:textSize="13pt"
         android:layoutDirection="rtl"
@@ -34,7 +34,7 @@
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/edittext_new_todo_name" />
+        android:layout_below="@id/edittext_edit_todo_name" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,13 +43,13 @@
         android:layout_below="@id/edittext_new_todo_name">
 
         <Button
-            android:text="@string/add_text"
+            android:text="@string/edit_text"
             android:textSize="13pt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="220dp"
             android:layout_marginLeft="15dp"
-            android:onClick="onAddNewTodoClick" />
+            android:onClick="onEditTodoClick" />
 
         <Button
             android:text="@string/cancel_text"
@@ -58,6 +58,6 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="220dp"
-            android:onClick="onCancelNewTodoClick" />
+            android:onClick="onCancelEditTodoClick" />
     </RelativeLayout>
 </RelativeLayout>
