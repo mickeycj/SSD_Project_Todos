@@ -59,10 +59,7 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
         updateUser();
     }
 
-    public void onCancelEditItemClick(View view) {
-        setResult(RESULT_CANCELED);
-        finish();
-    }
+    public void onCancelEditItemClick(View view) { onBackPressed(); }
 
     @Override
     public String getItemNameFromEditText() { return itemNameEditText.getText().toString(); }
@@ -75,4 +72,10 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
 
     @Override
     public void setDoneCheckbox() { doneCheckBox.setChecked(user.getTodo(todoIndex).getItem(itemIndex).isDone()); }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
+    }
 }

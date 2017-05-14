@@ -43,14 +43,17 @@ public class AddItemActivity extends AppCompatActivity implements AddItemView {
         finish();
     }
 
-    public void onCancelNewItemClick(View view) {
-        setResult(RESULT_CANCELED);
-        finish();
-    }
+    public void onCancelNewItemClick(View view) { onBackPressed(); }
 
     @Override
     public String getItemNameFromEditText() { return itemNameEditText.getText().toString(); }
 
     @Override
     public void clearItemNameEditText() { itemNameEditText.setText(""); }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
+    }
 }

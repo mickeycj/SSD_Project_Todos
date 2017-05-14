@@ -46,10 +46,7 @@ public class AddTodoActivity extends AppCompatActivity implements AddTodoView {
         finish();
     }
 
-    public void onCancelNewTodoClick(View view) {
-        setResult(RESULT_CANCELED);
-        finish();
-    }
+    public void onCancelNewTodoClick(View view) { onBackPressed(); }
 
     @Override
     public String getTodoNameFromEditText() { return todoNameEditText.getText().toString(); }
@@ -62,4 +59,10 @@ public class AddTodoActivity extends AppCompatActivity implements AddTodoView {
 
     @Override
     public void setImportantCheckboxUnchecked() { importantCheckbox.setChecked(false); }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
+    }
 }

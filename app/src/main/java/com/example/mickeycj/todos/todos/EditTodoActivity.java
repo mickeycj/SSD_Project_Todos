@@ -58,10 +58,7 @@ public class EditTodoActivity extends AppCompatActivity implements EditTodoView 
         updateUser(true);
     }
 
-    public void onCancelEditTodoClick(View view) {
-        setResult(RESULT_CANCELED);
-        finish();
-    }
+    public void onCancelEditTodoClick(View view) { onBackPressed(); }
 
     @Override
     public String getTodoNameFromEditText() { return todoNameEditText.getText().toString(); }
@@ -74,4 +71,10 @@ public class EditTodoActivity extends AppCompatActivity implements EditTodoView 
 
     @Override
     public void setImportantCheckBox() { importantCheckbox.setChecked(user.getTodo(todoIndex).isImportant()); }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
+    }
 }
