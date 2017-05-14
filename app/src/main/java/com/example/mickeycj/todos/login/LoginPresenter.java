@@ -19,10 +19,6 @@ public class LoginPresenter {
 
     public void start() { clearEditTexts(); }
 
-    public void setEmailEditText(String text) { view.setEmailEditText(text); }
-
-    public void setPasswordEditText(String text) { view.setPasswordEditText(text); }
-
     public void clearEditTexts() {
         view.clearEmailEditText();
         view.clearPasswordEditText();
