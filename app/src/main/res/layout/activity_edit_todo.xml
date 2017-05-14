@@ -52,12 +52,23 @@
             android:onClick="onEditTodoClick" />
 
         <Button
-            android:text="@string/cancel_text"
+            android:text="@string/delete_text"
             android:textSize="13pt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="220dp"
-            android:onClick="onCancelEditTodoClick" />
+            android:onClick="onDeleteTodoClick" />
     </RelativeLayout>
+
+    <Button
+        android:text="@string/cancel_text"
+        android:textSize="13pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_below="@id/edittext_edit_todo_name"
+        android:onClick="onCancelEditTodoClick" />
 </RelativeLayout>

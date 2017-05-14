@@ -24,4 +24,6 @@ public class EditTodoPresenter {
     }
 
     public void submit() { user.editTodo(todoIndex, view.getTodoNameFromEditText(), view.isImportantCheckboxChecked()); }
+
+    public void delete() { user.deleteTodo(todoIndex); }
 }

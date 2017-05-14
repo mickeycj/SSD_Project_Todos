@@ -87,7 +87,16 @@ public class ItemsActivity extends AppCompatActivity implements ItemsView {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             user = data.getParcelableExtra("user");
-            updateItemList();
+            if (!data.getBooleanExtra("deleted", false)) {
+                setTodoNameTextView();
+                setTodoImportanceTextView();
+                updateItemList();
+            } else {
+                Intent returnedIntent = new Intent();
+                returnedIntent.putExtra("user", user);
+                setResult(RESULT_OK, returnedIntent);
+                finish();
+            }
         }
     }
 }

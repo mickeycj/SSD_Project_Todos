@@ -39,13 +39,23 @@ public class EditTodoActivity extends AppCompatActivity implements EditTodoView 
         importantCheckbox = (CheckBox) findViewById(R.id.checkbox_edit_todo_important);
     }
 
-    public void onEditTodoClick(View view) {
-        presenter.submit();
+    private void updateUser(boolean deleted) {
         LocalDatabase.getInstance().updateUser(user);
         Intent returnedIntent = new Intent();
         returnedIntent.putExtra("user", user);
+        returnedIntent.putExtra("deleted", deleted);
         setResult(RESULT_OK, returnedIntent);
         finish();
+    }
+
+    public void onEditTodoClick(View view) {
+        presenter.submit();
+        updateUser(false);
+    }
+
+    public void onDeleteTodoClick(View view) {
+        presenter.delete();
+        updateUser(true);
     }
 
     public void onCancelEditTodoClick(View view) {

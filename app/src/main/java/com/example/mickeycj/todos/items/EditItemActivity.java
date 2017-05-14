@@ -41,8 +41,7 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
         doneCheckBox = (CheckBox) findViewById(R.id.checkbox_edit_item_done);
     }
 
-    public void onEditItemClick(View view) {
-        presenter.submit();
+    private void updateUser() {
         LocalDatabase.getInstance().updateUser(user);
         Intent returnedIntent = new Intent();
         returnedIntent.putExtra("user", user);
@@ -50,7 +49,17 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
         finish();
     }
 
-    public void onCancelEditTodoClick(View view) {
+    public void onEditItemClick(View view) {
+        presenter.submit();
+        updateUser();
+    }
+
+    public void onDeleteItemClick(View view) {
+        presenter.delete();
+        updateUser();
+    }
+
+    public void onCancelEditItemClick(View view) {
         setResult(RESULT_CANCELED);
         finish();
     }

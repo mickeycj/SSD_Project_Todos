@@ -26,4 +26,6 @@ public class EditItemPresenter {
     }
 
     public void submit() { user.editItemOf(todoIndex, itemIndex, view.getItemNameFromEditText(), view.isDoneCheckboxChecked()); }
+
+    public void delete() { user.deleteItemFrom(todoIndex, itemIndex); }
 }
