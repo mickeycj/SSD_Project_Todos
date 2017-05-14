@@ -18,7 +18,7 @@
             android:layout_marginLeft="15dp" />
 
         <Button
-            android:text="@string/add"
+            android:text="@string/add_symbol"
             android:textSize="13pt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

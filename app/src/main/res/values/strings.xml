@@ -14,5 +14,11 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="hint_password">********</string>
-    <string name="add">+</string>
+    <string name="add_symbol">+</string>
+    <string name="add_text">Add</string>
+    <string name="edit_text">Edit</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="important">Important?</string>
+    <string name="add_todo">Add Todo</string>
+    <string name="hint_todo_name">Enter todo name here</string>
 </resources>
