@@ -61,8 +61,10 @@ public class ItemsActivity extends AppCompatActivity implements ItemsView {
     }
 
     public void onAddItemClick(View view) {
-        // TODO Go to add item screen
-
+        Intent addItemIntent = new Intent(this, AddItemActivity.class);
+        addItemIntent.putExtra("user", user);
+        addItemIntent.putExtra("todoIndex", todoIndex);
+        startActivityForResult(addItemIntent, 0);
     }
 
     @Override
@@ -75,5 +77,14 @@ public class ItemsActivity extends AppCompatActivity implements ItemsView {
     public void updateItemList() {
         itemArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, user.getTodo(todoIndex).getItems());
         itemListView.setAdapter(itemArrayAdapter);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            user = data.getParcelableExtra("user");
+            updateItemList();
+        }
     }
 }
