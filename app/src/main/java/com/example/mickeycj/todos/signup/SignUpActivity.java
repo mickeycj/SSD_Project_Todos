@@ -3,8 +3,11 @@ package com.example.mickeycj.todos.signup;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
 import com.example.mickeycj.todos.data.Database;
@@ -20,6 +23,16 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText confirmPasswordEditText;
+
+    private TextView.OnEditorActionListener enterAction = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                signUp();
+            }
+            return false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +52,30 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         usernameEditText = (EditText) findViewById(R.id.edittext_signup_username);
         passwordEditText = (EditText) findViewById(R.id.edittext_signup_password);
         confirmPasswordEditText = (EditText) findViewById(R.id.edittext_signup_confirm_password);
+        emailEditText.setOnEditorActionListener(enterAction);
+        usernameEditText.setOnEditorActionListener(enterAction);
+        passwordEditText.setOnEditorActionListener(enterAction);
+        confirmPasswordEditText.setOnEditorActionListener(enterAction);
     }
 
     private void startLoginActivity() {
         Intent loginIntent = new Intent(this, LoginActivity.class);
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        setResult(RESULT_CANCELED);
         startActivity(loginIntent);
+    }
+
+    private void signUp() {
+        if (presenter.onSignUpClick()) {
+            startLoginActivity();
+        }
     }
 
     public void onLoginTabClick(View view) {
         startLoginActivity();
     }
 
-    public void onSignUpClick(View view) {
-        if (presenter.onSignUpClick()) {
-            startLoginActivity();
-        }
-    }
+    public void onSignUpClick(View view) { signUp(); }
 
     @Override
     public String getEmailFromEditText() { return emailEditText.getText().toString(); }
@@ -92,4 +112,10 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void clearConfirmPasswordEditText() { setConfirmPasswordEditText(""); }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
+    }
 }

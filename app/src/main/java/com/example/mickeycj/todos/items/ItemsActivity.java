@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
 import com.example.mickeycj.todos.data.Item;
+import com.example.mickeycj.todos.data.LocalDatabase;
 import com.example.mickeycj.todos.data.User;
 import com.example.mickeycj.todos.todos.EditTodoActivity;
 
@@ -80,6 +81,15 @@ public class ItemsActivity extends AppCompatActivity implements ItemsView {
     public void updateItemList() {
         itemArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, user.getTodo(todoIndex).getItems());
         itemListView.setAdapter(itemArrayAdapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        LocalDatabase.getInstance().updateUser(user);
+        Intent returnedIntent = new Intent();
+        returnedIntent.putExtra("user", user);
+        setResult(RESULT_OK, returnedIntent);
+        super.onBackPressed();
     }
 
     @Override

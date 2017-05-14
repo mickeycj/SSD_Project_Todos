@@ -3,8 +3,11 @@ package com.example.mickeycj.todos.items;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
 import com.example.mickeycj.todos.data.LocalDatabase;
