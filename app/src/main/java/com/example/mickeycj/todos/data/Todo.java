@@ -54,7 +54,7 @@ public class Todo implements Parcelable {
 
     public void addItem(Item item) { items.add(item); }
 
-    public void editItem(int index, String name) { items.get(index).setName(name); }
+    public void editItem(int index, String name, boolean done) { items.get(index).setName(name); items.get(index).setDone(done); }
 
     public void markItemAsDone(int index) { items.get(index).markAsDone(); }
 

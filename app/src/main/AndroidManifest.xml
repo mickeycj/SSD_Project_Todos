@@ -22,7 +22,8 @@
         <activity android:name=".todos.AddTodoActivity" />
         <activity android:name=".todos.EditTodoActivity" />
         <activity android:name=".items.ItemsActivity" />
-        <activity android:name=".items.AddItemActivity"></activity>
+        <activity android:name=".items.AddItemActivity" />
+        <activity android:name=".items.EditItemActivity"></activity>
     </application>
 
 </manifest>

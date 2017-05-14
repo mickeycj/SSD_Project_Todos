@@ -51,7 +51,7 @@ public class User implements Parcelable {
 
     public void addItemTo(int index, Item item) { todos.get(index).addItem(item); }
 
-    public void editItemOf(int todoIndex, int itemIndex, String name) { todos.get(todoIndex).editItem(itemIndex, name); }
+    public void editItemOf(int todoIndex, int itemIndex, String name, boolean done) { todos.get(todoIndex).editItem(itemIndex, name, done); }
 
     public void markItemAsDone(int todoIndex, int itemIndex) { todos.get(todoIndex).markItemAsDone(itemIndex); }
 

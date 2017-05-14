@@ -22,9 +22,5 @@ public class AddTodoPresenter {
         view.setImportantCheckboxUnchecked();
     }
 
-    public void submit() {
-        String name = view.getTodoNameFromEditText();
-        boolean important = view.isImportantCheckboxChecked();
-        user.addTodo(new Todo(name, important));
-    }
+    public void submit() { user.addTodo(new Todo(view.getTodoNameFromEditText(), view.isImportantCheckboxChecked())); }
 }

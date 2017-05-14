@@ -47,8 +47,11 @@ public class ItemsActivity extends AppCompatActivity implements ItemsView {
         itemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO Go to item's actions screen
-
+                Intent editItemIntent = new Intent(ItemsActivity.this, EditItemActivity.class);
+                editItemIntent.putExtra("user", user);
+                editItemIntent.putExtra("todoIndex", todoIndex);
+                editItemIntent.putExtra("itemIndex", position);
+                startActivityForResult(editItemIntent, 0);
             }
         });
     }
