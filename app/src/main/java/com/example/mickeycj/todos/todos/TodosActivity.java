@@ -1,5 +1,6 @@
 package com.example.mickeycj.todos.todos;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -48,8 +49,9 @@ public class TodosActivity extends AppCompatActivity implements TodosView {
     }
 
     public void onAddTodoClick(View view) {
-        // TODO Go to add new todo screen
-
+        Intent addTodoIntent = new Intent(this, AddTodoActivity.class);
+        addTodoIntent.putExtra("user", user);
+        startActivityForResult(addTodoIntent, 0);
     }
 
     @Override
@@ -59,5 +61,14 @@ public class TodosActivity extends AppCompatActivity implements TodosView {
     public void updateTodoList() {
         todoArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, user.getTodos());
         todoListView.setAdapter(todoArrayAdapter);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            user = data.getParcelableExtra("user");
+            updateTodoList();
+        }
     }
 }

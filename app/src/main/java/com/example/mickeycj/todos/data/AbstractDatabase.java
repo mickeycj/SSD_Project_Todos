@@ -22,10 +22,8 @@ public abstract class AbstractDatabase implements Database {
     public User getUser(String email) { return users.get(email); }
 
     @Override
-    public boolean createUser(User user) {
-        if (users.get(user.getEmail()) == null) {
-            return users.put(user.getEmail(), user) == null;
-        }
-        return false;
-    }
+    public boolean createUser(User user) { return users.get(user.getEmail()) == null && users.put(user.getEmail(), user) == null; }
+
+    @Override
+    public void updateUser(User user) { users.put(user.getEmail(), user); }
 }

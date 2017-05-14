@@ -13,4 +13,6 @@ public interface Database {
     User getUser(String email);
 
     boolean createUser(User user);
+
+    void updateUser(User user);
 }
