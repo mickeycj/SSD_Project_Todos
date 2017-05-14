@@ -23,4 +23,6 @@
     <string name="important">Important?</string>
     <string name="hint_todo_name">Enter todo name here</string>
     <string name="hint_edit_todo_name">Edit todo name here</string>
+    <string name="add_item">Add Item</string>
+    <string name="hint_item_name">Enter item name here</string>
 </resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_add_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textview_add_item"
+        android:text="@string/add_item"
+        android:textSize="20pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/edittext_new_item_name"
+        android:hint="@string/hint_item_name"
+        android:textSize="15pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="75dp"
+        android:layout_below="@id/textview_add_item" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:layout_below="@id/edittext_new_item_name">
+
+        <Button
+            android:text="@string/add_text"
+            android:textSize="13pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="220dp"
+            android:layout_marginLeft="15dp"
+            android:onClick="onAddNewItemClick" />
+
+        <Button
+            android:text="@string/cancel_text"
+            android:textSize="13pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="220dp"
+            android:onClick="onCancelNewItemClick" />
+    </RelativeLayout>
+</RelativeLayout>
