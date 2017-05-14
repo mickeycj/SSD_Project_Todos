@@ -45,7 +45,7 @@ public class User implements Parcelable {
 
     public void addTodo(Todo todo) { todos.add(todo); }
 
-    public void editTodo(int index, String name) { todos.get(index).setName(name); }
+    public void editTodo(int index, String name, boolean important) { todos.get(index).setName(name); todos.get(index).setImportant(important); }
 
     public void deleteTodo(int index) { todos.remove(index); }
 
