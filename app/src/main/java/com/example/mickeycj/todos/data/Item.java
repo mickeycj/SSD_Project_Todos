@@ -32,6 +32,9 @@ public class Item implements Parcelable {
     public void markAsDone() { setDone(true); }
 
     @Override
+    public String toString() { return name + ((done) ? " (" : " (NOT ") + "DONE)"; }
+
+    @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
         dest.writeByte((byte)((done) ? 1 : 0));

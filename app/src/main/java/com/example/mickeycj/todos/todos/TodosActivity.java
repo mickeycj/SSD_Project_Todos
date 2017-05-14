@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.mickeycj.todos.R;
 import com.example.mickeycj.todos.data.Todo;
 import com.example.mickeycj.todos.data.User;
+import com.example.mickeycj.todos.items.ItemsActivity;
 
 public class TodosActivity extends AppCompatActivity implements TodosView {
 
@@ -42,8 +43,10 @@ public class TodosActivity extends AppCompatActivity implements TodosView {
         todoListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO Go to todo's details screen
-
+                Intent todoDetailsIntent = new Intent(TodosActivity.this, ItemsActivity.class);
+                todoDetailsIntent.putExtra("user", user);
+                todoDetailsIntent.putExtra("todoIndex", position);
+                startActivityForResult(todoDetailsIntent, 0);
             }
         });
     }

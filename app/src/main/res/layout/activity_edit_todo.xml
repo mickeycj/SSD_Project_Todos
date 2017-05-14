@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="125dp"
-        android:layout_below="@id/edittext_new_todo_name">
+        android:layout_below="@id/edittext_edit_todo_name">
 
         <Button
             android:text="@string/edit_text"
