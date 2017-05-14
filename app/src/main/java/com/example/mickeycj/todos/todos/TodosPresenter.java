@@ -8,11 +8,9 @@ import com.example.mickeycj.todos.data.User;
 
 public class TodosPresenter {
 
-    private User user;
     private TodosView view;
 
-    public TodosPresenter(User user, TodosView view) {
-        this.user = user;
+    public TodosPresenter(TodosView view) {
         this.view = view;
     }
 

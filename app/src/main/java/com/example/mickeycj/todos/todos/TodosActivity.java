@@ -29,7 +29,7 @@ public class TodosActivity extends AppCompatActivity implements TodosView {
         setContentView(R.layout.activity_todos);
 
         user = getIntent().getParcelableExtra("user");
-        presenter = new TodosPresenter(user, this);
+        presenter = new TodosPresenter(this);
 
         initViewHolders();
 

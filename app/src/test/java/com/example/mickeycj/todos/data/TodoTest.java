@@ -3,6 +3,7 @@ package com.example.mickeycj.todos.data;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
@@ -16,12 +17,18 @@ public class TodoTest {
     private Todo todo;
 
     @Before
-    public void setUp() { todo = new Todo("Test todo"); }
+    public void setUp() { todo = new Todo("Test todo", false); }
 
     @Test
     public void shouldChangeNameAfterEdit() {
         todo.setName(todo.getName() + " - Edited");
         assertNotEquals("Test todo", todo.getName());
+    }
+
+    @Test
+    public void shouldChangeImportanceAfterEdit() {
+        todo.setImportant(true);
+        assertFalse(!todo.isImportant());
     }
 
     @Test
