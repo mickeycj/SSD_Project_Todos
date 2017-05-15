@@ -18,12 +18,21 @@ public class EditTodoPresenter {
         this.view = view;
     }
 
-    public void start() {
+    public void start() { reset(); }
+
+    public void submit() {
+        String name = view.getTodoNameFromEditText();
+        if (name != null && !name.equals("")) {
+            user.editTodo(todoIndex, name, view.isImportantCheckboxChecked());
+        } else {
+            reset();
+        }
+    }
+
+    public void delete() { user.deleteTodo(todoIndex); }
+
+    private void reset() {
         view.setTodoNameEditText();
         view.setImportantCheckBox();
     }
-
-    public void submit() { user.editTodo(todoIndex, view.getTodoNameFromEditText(), view.isImportantCheckboxChecked()); }
-
-    public void delete() { user.deleteTodo(todoIndex); }
 }

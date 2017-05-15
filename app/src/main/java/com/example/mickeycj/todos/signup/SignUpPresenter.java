@@ -39,7 +39,9 @@ public class SignUpPresenter {
         String username = view.getUsernameFromEditText();
         String password = view.getPasswordFromEditText();
         String passwordConfirmation = view.getPasswordConfirmationFromEditText();
-        if (!password.equals(passwordConfirmation) || !database.createUser(new User(email, username, password))) {
+        if (email == null || username == null || password == null || passwordConfirmation == null
+                || email.equals("") || username.equals("") || password.equals("") || passwordConfirmation.equals("")
+                || !password.equals(passwordConfirmation) || !database.createUser(new User(email, username, password))) {
             clearEditTexts();
             return false;
         }

@@ -19,7 +19,16 @@ public class AddItemPresenter {
         this.view = view;
     }
 
-    public void start() { view.clearItemNameEditText(); }
+    public void start() { reset(); }
 
-    public void submit() { user.addItemTo(todoIndex, new Item(view.getItemNameFromEditText())); }
+    public void submit() {
+        String name = view.getItemNameFromEditText();
+        if (name != null && !name.equals("")) {
+            user.addItemTo(todoIndex, new Item(name));
+        } else {
+            reset();
+        }
+    }
+
+    private void reset() { view.clearItemNameEditText(); }
 }

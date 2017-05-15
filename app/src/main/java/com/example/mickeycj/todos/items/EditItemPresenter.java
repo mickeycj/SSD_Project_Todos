@@ -20,12 +20,21 @@ public class EditItemPresenter {
         this.view = view;
     }
 
-    public void start() {
+    public void start() { reset(); }
+
+    public void submit() {
+        String name = view.getItemNameFromEditText();
+        if (name != null && !name.equals("")) {
+            user.editItemOf(todoIndex, itemIndex, name, view.isDoneCheckboxChecked());
+        } else {
+            reset();
+        }
+    }
+
+    public void delete() { user.deleteItemFrom(todoIndex, itemIndex); }
+
+    private void reset() {
         view.setItemNameEditText();
         view.setDoneCheckbox();
     }
-
-    public void submit() { user.editItemOf(todoIndex, itemIndex, view.getItemNameFromEditText(), view.isDoneCheckboxChecked()); }
-
-    public void delete() { user.deleteItemFrom(todoIndex, itemIndex); }
 }

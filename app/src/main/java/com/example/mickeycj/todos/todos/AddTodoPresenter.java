@@ -17,10 +17,19 @@ public class AddTodoPresenter {
         this.view = view;
     }
 
-    public void start() {
+    public void start() { reset(); }
+
+    public void submit() {
+        String name = view.getTodoNameFromEditText();
+        if (name != null && !name.equals("")) {
+            user.addTodo(new Todo(name, view.isImportantCheckboxChecked()));
+        } else {
+            reset();
+        }
+    }
+
+    private void reset() {
         view.clearTodoNameEditText();
         view.setImportantCheckboxUnchecked();
     }
-
-    public void submit() { user.addTodo(new Todo(view.getTodoNameFromEditText(), view.isImportantCheckboxChecked())); }
 }

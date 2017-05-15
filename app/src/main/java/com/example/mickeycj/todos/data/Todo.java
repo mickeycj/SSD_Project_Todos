@@ -14,29 +14,22 @@ import java.util.TimeZone;
 
 public class Todo implements Parcelable {
 
-    private final String createdAt;
     private String name;
     private boolean important;
     private ArrayList<Item> items;
 
     public Todo(String name, boolean important) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
-        sdf.setTimeZone(TimeZone.getDefault());
-        this.createdAt = sdf.format(new Date());
         this.name = name;
         this.important = important;
         this.items = new ArrayList<>();
     }
 
     public Todo(Parcel in) {
-        this.createdAt = in.readString();
         this.name = in.readString();
         this.important = in.readByte() == 1;
         this.items = new ArrayList<>();
         in.readList(this.items, Item.class.getClassLoader());
     }
-
-    public String getCreatedAt() { return createdAt; }
 
     public String getName() { return name; }
 
@@ -67,7 +60,6 @@ public class Todo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(createdAt);
         dest.writeString(name);
         dest.writeByte((byte)((important) ? 1 : 0));
         dest.writeList(items);
