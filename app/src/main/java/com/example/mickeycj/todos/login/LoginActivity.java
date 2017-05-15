@@ -1,6 +1,8 @@
 package com.example.mickeycj.todos.login;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -57,6 +59,16 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             Intent userIntent = new Intent(this, TodosActivity.class);
             userIntent.putExtra("user", user);
             startActivityForResult(userIntent, 0);
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Invalid Login")
+                    .setMessage("You have entered invalid data.\n\nPlease enter valid login details.")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            presenter.clearEditTexts();
+                        }
+                    }).show();
         }
     }
 

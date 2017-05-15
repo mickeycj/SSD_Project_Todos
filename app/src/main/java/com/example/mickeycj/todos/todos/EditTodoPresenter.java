@@ -26,7 +26,6 @@ public class EditTodoPresenter {
             user.editTodo(todoIndex, name, view.isImportantCheckboxChecked());
             return true;
         }
-        reset();
         return false;
     }
 

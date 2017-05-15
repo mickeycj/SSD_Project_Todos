@@ -26,10 +26,6 @@ public class LoginPresenter {
 
     public User onLoginClick() {
         User user = database.getUser(view.getEmailFromEditText());
-        if (user == null || !view.getPasswordFromEditText().equals(user.getPassword())) {
-            clearEditTexts();
-            return null;
-        }
-        return user;
+        return (user == null || !view.getPasswordFromEditText().equals(user.getPassword())) ? null : user;
     }
 }

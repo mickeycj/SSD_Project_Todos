@@ -27,7 +27,6 @@ public class AddItemPresenter {
             user.addItemTo(todoIndex, new Item(name));
             return true;
         }
-        reset();
         return false;
     }
 

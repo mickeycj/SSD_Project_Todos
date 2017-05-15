@@ -19,14 +19,6 @@ public class SignUpPresenter {
 
     public void start() { clearEditTexts(); }
 
-    public void setEmailEditText(String text) { view.setEmailEditText(text); }
-
-    public void setUsernameEditText(String text) { view.setUsernameEditText(text); }
-
-    public void setPasswordEditText(String text) { view.setPasswordEditText(text); }
-
-    public void setConfirmPasswordEditText(String text) { view.setConfirmPasswordEditText(text); }
-
     public void clearEditTexts() {
         view.clearEmailEditText();
         view.clearUsernameEditText();
@@ -39,12 +31,8 @@ public class SignUpPresenter {
         String username = view.getUsernameFromEditText();
         String password = view.getPasswordFromEditText();
         String passwordConfirmation = view.getPasswordConfirmationFromEditText();
-        if (email == null || username == null || password == null || passwordConfirmation == null
-                || email.equals("") || username.equals("") || password.equals("") || passwordConfirmation.equals("")
-                || !password.equals(passwordConfirmation) || !database.createUser(new User(email, username, password))) {
-            clearEditTexts();
-            return false;
-        }
-        return true;
+        return email != null && username != null && password != null && passwordConfirmation != null
+                && !email.equals("") && !username.equals("") && !password.equals("") && !passwordConfirmation.equals("")
+                && password.equals(passwordConfirmation) && database.createUser(new User(email, username, password));
     }
 }

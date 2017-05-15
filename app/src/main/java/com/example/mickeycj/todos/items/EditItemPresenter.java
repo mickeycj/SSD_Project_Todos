@@ -28,7 +28,6 @@ public class EditItemPresenter {
             user.editItemOf(todoIndex, itemIndex, name, view.isDoneCheckboxChecked());
             return true;
         }
-        reset();
         return  false;
     }
 

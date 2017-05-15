@@ -17,7 +17,10 @@ public class AddTodoPresenter {
         this.view = view;
     }
 
-    public void start() { reset(); }
+    public void start() {
+        view.clearTodoNameEditText();
+        view.setImportantCheckboxUnchecked();
+    }
 
     public boolean submit() {
         String name = view.getTodoNameFromEditText();
@@ -25,12 +28,6 @@ public class AddTodoPresenter {
             user.addTodo(new Todo(name, view.isImportantCheckboxChecked()));
             return true;
         }
-        reset();
         return false;
-    }
-
-    private void reset() {
-        view.clearTodoNameEditText();
-        view.setImportantCheckboxUnchecked();
     }
 }
