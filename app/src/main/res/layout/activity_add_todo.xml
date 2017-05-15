@@ -15,8 +15,10 @@
     
     <EditText
         android:id="@+id/edittext_new_todo_name"
+        android:inputType="textLongMessage"
         android:hint="@string/hint_todo_name"
         android:textSize="15pt"
+        android:imeOptions="actionDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
@@ -36,28 +38,14 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/edittext_new_todo_name" />
 
-    <RelativeLayout
+    <Button
+        android:text="@string/add_text"
+        android:textSize="13pt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="125dp"
+        android:layout_marginLeft="125dp"
         android:layout_marginTop="125dp"
-        android:layout_below="@id/edittext_new_todo_name">
-
-        <Button
-            android:text="@string/add_text"
-            android:textSize="13pt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="220dp"
-            android:layout_marginLeft="15dp"
-            android:onClick="onAddNewTodoClick" />
-
-        <Button
-            android:text="@string/cancel_text"
-            android:textSize="13pt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="220dp"
-            android:onClick="onCancelNewTodoClick" />
-    </RelativeLayout>
+        android:layout_below="@id/edittext_new_todo_name"
+        android:onClick="onAddNewTodoClick" />
 </RelativeLayout>

@@ -20,7 +20,6 @@
     <string name="edit_todo">Edit Todo</string>
     <string name="edit_text">Edit</string>
     <string name="delete_text">Delete</string>
-    <string name="cancel_text">Cancel</string>
     <string name="important">Important?</string>
     <string name="hint_todo_name">Enter todo name here</string>
     <string name="hint_edit_todo_name">Edit todo name here</string>

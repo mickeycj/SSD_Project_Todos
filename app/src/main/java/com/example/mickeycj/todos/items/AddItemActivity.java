@@ -35,9 +35,20 @@ public class AddItemActivity extends AppCompatActivity implements AddItemView {
         presenter.start();
     }
 
-    private void initViewHolder() { itemNameEditText = (EditText) findViewById(R.id.edittext_new_item_name); }
+    private void initViewHolder() {
+        itemNameEditText = (EditText) findViewById(R.id.edittext_new_item_name);
+        itemNameEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    addNewItem();
+                }
+                return false;
+            }
+        });
+    }
 
-    public void onAddNewItemClick(View view) {
+    private void addNewItem() {
         presenter.submit();
         LocalDatabase.getInstance().updateUser(user);
         Intent returnedIntent = new Intent();
@@ -46,7 +57,7 @@ public class AddItemActivity extends AppCompatActivity implements AddItemView {
         finish();
     }
 
-    public void onCancelNewItemClick(View view) { onBackPressed(); }
+    public void onAddNewItemClick(View view) { addNewItem(); }
 
     @Override
     public String getItemNameFromEditText() { return itemNameEditText.getText().toString(); }

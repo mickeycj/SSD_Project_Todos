@@ -42,6 +42,15 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
     private void initViewHolders() {
         itemNameEditText = (EditText) findViewById(R.id.edittext_edit_item_name);
         doneCheckBox = (CheckBox) findViewById(R.id.checkbox_edit_item_done);
+        itemNameEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    editItem();
+                }
+                return false;
+            }
+        });
     }
 
     private void updateUser() {
@@ -52,17 +61,19 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
         finish();
     }
 
-    public void onEditItemClick(View view) {
+    private void editItem() {
         presenter.submit();
         updateUser();
+    }
+
+    public void onEditItemClick(View view) {
+        editItem();
     }
 
     public void onDeleteItemClick(View view) {
         presenter.delete();
         updateUser();
     }
-
-    public void onCancelEditItemClick(View view) { onBackPressed(); }
 
     @Override
     public String getItemNameFromEditText() { return itemNameEditText.getText().toString(); }

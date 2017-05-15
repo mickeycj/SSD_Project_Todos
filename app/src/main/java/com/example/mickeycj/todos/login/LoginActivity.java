@@ -24,16 +24,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText emailEditText;
     private EditText passwordEditText;
 
-    private TextView.OnEditorActionListener enterAction = new TextView.OnEditorActionListener() {
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                signIn();
-            }
-            return false;
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +40,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private void initViewHolders() {
         emailEditText = (EditText) findViewById(R.id.edittext_login_email);
         passwordEditText = (EditText) findViewById(R.id.edittext_login_password);
-        emailEditText.setOnEditorActionListener(enterAction);
-        passwordEditText.setOnEditorActionListener(enterAction);
+        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    signIn();
+                }
+                return false;
+            }
+        });
     }
 
     private void signIn() {

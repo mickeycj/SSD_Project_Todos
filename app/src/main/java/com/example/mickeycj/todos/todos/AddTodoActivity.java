@@ -38,9 +38,18 @@ public class AddTodoActivity extends AppCompatActivity implements AddTodoView {
     private void initViewHolders() {
         todoNameEditText = (EditText) findViewById(R.id.edittext_new_todo_name);
         importantCheckbox = (CheckBox) findViewById(R.id.checkbox_new_todo_important);
+        todoNameEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    addNewTodo();
+                }
+                return false;
+            }
+        });
     }
 
-    public void onAddNewTodoClick(View view) {
+    private void addNewTodo() {
         presenter.submit();
         LocalDatabase.getInstance().updateUser(user);
         Intent returnedIntent = new Intent();
@@ -49,7 +58,7 @@ public class AddTodoActivity extends AppCompatActivity implements AddTodoView {
         finish();
     }
 
-    public void onCancelNewTodoClick(View view) { onBackPressed(); }
+    public void onAddNewTodoClick(View view) { addNewTodo(); }
 
     @Override
     public String getTodoNameFromEditText() { return todoNameEditText.getText().toString(); }

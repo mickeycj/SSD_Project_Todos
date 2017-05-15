@@ -24,16 +24,6 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     private EditText passwordEditText;
     private EditText confirmPasswordEditText;
 
-    private TextView.OnEditorActionListener enterAction = new TextView.OnEditorActionListener() {
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                signUp();
-            }
-            return false;
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +42,15 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         usernameEditText = (EditText) findViewById(R.id.edittext_signup_username);
         passwordEditText = (EditText) findViewById(R.id.edittext_signup_password);
         confirmPasswordEditText = (EditText) findViewById(R.id.edittext_signup_confirm_password);
-        emailEditText.setOnEditorActionListener(enterAction);
-        usernameEditText.setOnEditorActionListener(enterAction);
-        passwordEditText.setOnEditorActionListener(enterAction);
-        confirmPasswordEditText.setOnEditorActionListener(enterAction);
+        confirmPasswordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    signUp();
+                }
+                return false;
+            }
+        });
     }
 
     private void startLoginActivity() {
