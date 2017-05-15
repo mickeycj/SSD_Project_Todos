@@ -107,7 +107,7 @@ public class UserTest {
         assertNotEquals("Test item 2", user.getTodo(0).getItem(1).getName());
         assertTrue(user.getTodo(0).getItem(1).isDone());
         assertEquals("Test item 3", user.getTodo(0).getItem(2).getName());
-        assertFalse(user.getTodo(0).getItem(1).isDone());
+        assertFalse(user.getTodo(0).getItem(2).isDone());
     }
 
     @Test
