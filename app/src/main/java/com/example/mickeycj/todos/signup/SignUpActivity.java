@@ -67,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
             startLoginActivity();
         } else {
             new AlertDialog.Builder(this)
-                    .setTitle("Invalid Login")
+                    .setTitle("Invalid Sign-Up")
                     .setMessage("You have entered invalid data.\n\nPlease enter valid sign-up details.")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
