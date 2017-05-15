@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="125dp"
         android:layout_marginRight="125dp"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="75dp"
         android:layout_below="@id/edittext_new_item_name"
         android:onClick="onAddNewItemClick" />
 </RelativeLayout>

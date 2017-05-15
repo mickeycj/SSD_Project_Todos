@@ -22,13 +22,14 @@ public class EditItemPresenter {
 
     public void start() { reset(); }
 
-    public void submit() {
+    public boolean submit() {
         String name = view.getItemNameFromEditText();
         if (name != null && !name.equals("")) {
             user.editItemOf(todoIndex, itemIndex, name, view.isDoneCheckboxChecked());
-        } else {
-            reset();
+            return true;
         }
+        reset();
+        return  false;
     }
 
     public void delete() { user.deleteItemFrom(todoIndex, itemIndex); }

@@ -62,8 +62,9 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
     }
 
     private void editItem() {
-        presenter.submit();
-        updateUser();
+        if (presenter.submit()) {
+            updateUser();
+        }
     }
 
     public void onEditItemClick(View view) {

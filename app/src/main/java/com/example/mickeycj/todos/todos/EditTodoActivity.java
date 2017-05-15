@@ -61,8 +61,9 @@ public class EditTodoActivity extends AppCompatActivity implements EditTodoView 
     }
 
     private void editTodo() {
-        presenter.submit();
-        updateUser(false);
+        if (presenter.submit()) {
+            updateUser(false);
+        }
     }
 
     public void onEditTodoClick(View view) {

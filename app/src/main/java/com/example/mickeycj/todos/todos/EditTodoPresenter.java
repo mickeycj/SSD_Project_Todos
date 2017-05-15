@@ -20,13 +20,14 @@ public class EditTodoPresenter {
 
     public void start() { reset(); }
 
-    public void submit() {
+    public boolean submit() {
         String name = view.getTodoNameFromEditText();
         if (name != null && !name.equals("")) {
             user.editTodo(todoIndex, name, view.isImportantCheckboxChecked());
-        } else {
-            reset();
+            return true;
         }
+        reset();
+        return false;
     }
 
     public void delete() { user.deleteTodo(todoIndex); }

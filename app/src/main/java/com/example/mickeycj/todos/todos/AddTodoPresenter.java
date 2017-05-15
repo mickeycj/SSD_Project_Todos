@@ -19,13 +19,14 @@ public class AddTodoPresenter {
 
     public void start() { reset(); }
 
-    public void submit() {
+    public boolean submit() {
         String name = view.getTodoNameFromEditText();
         if (name != null && !name.equals("")) {
             user.addTodo(new Todo(name, view.isImportantCheckboxChecked()));
-        } else {
-            reset();
+            return true;
         }
+        reset();
+        return false;
     }
 
     private void reset() {

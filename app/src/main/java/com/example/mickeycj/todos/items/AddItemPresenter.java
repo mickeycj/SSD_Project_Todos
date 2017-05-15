@@ -21,13 +21,14 @@ public class AddItemPresenter {
 
     public void start() { reset(); }
 
-    public void submit() {
+    public boolean submit() {
         String name = view.getItemNameFromEditText();
         if (name != null && !name.equals("")) {
             user.addItemTo(todoIndex, new Item(name));
-        } else {
-            reset();
+            return true;
         }
+        reset();
+        return false;
     }
 
     private void reset() { view.clearItemNameEditText(); }

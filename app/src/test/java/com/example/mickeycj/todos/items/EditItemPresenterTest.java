@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.verify;
 
 /**
  * Created by user on 14/5/60.
@@ -43,8 +44,6 @@ public class EditItemPresenterTest {
     @Test
     public void shouldGetValuesFromEditTextAndCheckboxAfterSubmit() {
         presenter.submit();
-        InOrder order = inOrder(view);
-        order.verify(view).getItemNameFromEditText();
-        order.verify(view).isDoneCheckboxChecked();
+        verify(view).getItemNameFromEditText();
     }
 }

@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.verify;
 
 /**
  * Created by mickeycj on 14/5/2560.
@@ -38,8 +39,6 @@ public class AddTodoPresenterTest {
     @Test
     public void shouldGetValuesFromEditTextAndCheckboxAfterSubmit() {
         presenter.submit();
-        InOrder order = inOrder(view);
-        order.verify(view).getTodoNameFromEditText();
-        order.verify(view).isImportantCheckboxChecked();
+        verify(view).getTodoNameFromEditText();
     }
 }

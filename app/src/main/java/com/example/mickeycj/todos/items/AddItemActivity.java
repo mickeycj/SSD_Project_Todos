@@ -49,12 +49,13 @@ public class AddItemActivity extends AppCompatActivity implements AddItemView {
     }
 
     private void addNewItem() {
-        presenter.submit();
-        LocalDatabase.getInstance().updateUser(user);
-        Intent returnedIntent = new Intent();
-        returnedIntent.putExtra("user", user);
-        setResult(RESULT_OK, returnedIntent);
-        finish();
+        if (presenter.submit()) {
+            LocalDatabase.getInstance().updateUser(user);
+            Intent returnedIntent = new Intent();
+            returnedIntent.putExtra("user", user);
+            setResult(RESULT_OK, returnedIntent);
+            finish();
+        }
     }
 
     public void onAddNewItemClick(View view) { addNewItem(); }

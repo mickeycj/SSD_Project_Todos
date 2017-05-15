@@ -50,12 +50,13 @@ public class AddTodoActivity extends AppCompatActivity implements AddTodoView {
     }
 
     private void addNewTodo() {
-        presenter.submit();
-        LocalDatabase.getInstance().updateUser(user);
-        Intent returnedIntent = new Intent();
-        returnedIntent.putExtra("user", user);
-        setResult(RESULT_OK, returnedIntent);
-        finish();
+        if (presenter.submit()) {
+            LocalDatabase.getInstance().updateUser(user);
+            Intent returnedIntent = new Intent();
+            returnedIntent.putExtra("user", user);
+            setResult(RESULT_OK, returnedIntent);
+            finish();
+        }
     }
 
     public void onAddNewTodoClick(View view) { addNewTodo(); }
