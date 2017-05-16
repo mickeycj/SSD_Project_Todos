@@ -55,16 +55,16 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         });
     }
 
-    private void startLoginActivity() {
-        Intent loginIntent = new Intent(this, LoginActivity.class);
-        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        setResult(RESULT_CANCELED);
-        startActivity(loginIntent);
+    private void returnToLoginActivity() {
+        Intent returnedIntent = new Intent(this, LoginActivity.class);
+        returnedIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        setResult(RESULT_CANCELED, returnedIntent);
     }
 
     private void signUp() {
         if (presenter.onSignUpClick()) {
-            startLoginActivity();
+            returnToLoginActivity();
+            finish();
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("Invalid Sign-Up")
@@ -79,7 +79,8 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     }
 
     public void onLoginTabClick(View view) {
-        startLoginActivity();
+        returnToLoginActivity();
+        finish();
     }
 
     public void onSignUpClick(View view) { signUp(); }
@@ -121,8 +122,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     public void clearConfirmPasswordEditText() { setConfirmPasswordEditText(""); }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
     public void onBackPressed() {
-        setResult(RESULT_CANCELED);
+        returnToLoginActivity();
         super.onBackPressed();
     }
 }
