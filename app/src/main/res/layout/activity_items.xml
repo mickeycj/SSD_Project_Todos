@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_items"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:id="@+id/layout_todo_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,6 +22,7 @@
                 android:id="@+id/textview_todo_name"
                 android:text="Todo name"
                 android:textSize="15pt"
+                android:typeface="serif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -30,6 +32,7 @@
                 android:id="@+id/textview_todo_importance"
                 android:text="Important?"
                 android:textSize="10pt"
+                android:typeface="serif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -37,6 +40,7 @@
         <Button
             android:text="@string/add_symbol"
             android:textSize="13pt"
+            android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
@@ -48,6 +52,6 @@
         android:id="@+id/listview_item_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@id/layout_todo_details" />
 </RelativeLayout>

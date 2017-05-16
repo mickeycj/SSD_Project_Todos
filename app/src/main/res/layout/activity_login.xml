@@ -2,16 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="40dp">
 
         <Button
             android:text="@string/login_tab"
             android:textSize="13pt"
+            android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="220dp"
@@ -20,6 +22,7 @@
         <Button
             android:text="@string/signup_tab"
             android:textSize="13pt"
+            android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
@@ -31,16 +34,18 @@
         android:id="@+id/textview_login_email"
         android:text="@string/email"
         android:textSize="15pt"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="175dp" />
+        android:layout_marginTop="215dp" />
 
     <EditText
         android:id="@+id/edittext_login_email"
         android:inputType="textEmailAddress"
         android:hint="@string/hint_email"
         android:textSize="13pt"
+        android:typeface="serif"
         android:imeOptions="actionNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,6 +57,7 @@
         android:id="@+id/textview_login_password"
         android:text="@string/password"
         android:textSize="15pt"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -63,6 +69,7 @@
         android:inputType="textPassword"
         android:hint="@string/hint_password"
         android:textSize="13pt"
+        android:typeface="serif"
         android:imeOptions="actionDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,9 +80,10 @@
     <Button
         android:text="@string/login"
         android:textSize="15pt"
+        android:typeface="serif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="115dp"
         android:layout_marginLeft="125dp"
         android:layout_marginRight="125dp"
         android:layout_below="@id/edittext_login_password"

@@ -2,16 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_sign_up"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="40dp">
 
         <Button
             android:text="@string/login_tab"
             android:textSize="13pt"
+            android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="220dp"
@@ -21,6 +23,7 @@
         <Button
             android:text="@string/signup_tab"
             android:textSize="13pt"
+            android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
@@ -31,16 +34,18 @@
         android:id="@+id/textview_signup_email"
         android:text="@string/email"
         android:textSize="12pt"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="100dp" />
+        android:layout_marginTop="140dp" />
 
     <EditText
         android:id="@+id/edittext_signup_email"
         android:inputType="textEmailAddress"
         android:hint="@string/hint_email"
         android:textSize="10pt"
+        android:typeface="serif"
         android:imeOptions="actionNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,6 +57,7 @@
         android:id="@+id/textview_signup_username"
         android:text="@string/username"
         android:textSize="12pt"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -63,6 +69,7 @@
         android:inputType="textPersonName"
         android:hint="@string/hint_username"
         android:textSize="10pt"
+        android:typeface="serif"
         android:imeOptions="actionNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,6 +81,7 @@
         android:id="@+id/textview_signup_password"
         android:text="@string/password"
         android:textSize="12pt"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -85,6 +93,7 @@
         android:inputType="textPassword"
         android:hint="@string/hint_password"
         android:textSize="10pt"
+        android:typeface="serif"
         android:imeOptions="actionNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,6 +105,7 @@
         android:id="@+id/textview_signup_confirm_password"
         android:text="@string/confirm_password"
         android:textSize="12pt"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -107,6 +117,7 @@
         android:inputType="textPassword"
         android:hint="@string/hint_password"
         android:textSize="10pt"
+        android:typeface="serif"
         android:imeOptions="actionDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -117,9 +128,10 @@
     <Button
         android:text="@string/signup"
         android:textSize="15pt"
+        android:typeface="serif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="65dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_below="@id/edittext_signup_confirm_password"

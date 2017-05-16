@@ -2,18 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_todos"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:id="@+id/layout_user_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="40dp">
 
         <TextView
             android:id="@+id/textview_username"
             android:text="Username"
             android:textSize="18pt"
+            android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp" />
@@ -21,6 +23,7 @@
         <Button
             android:text="@string/add_symbol"
             android:textSize="13pt"
+            android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
@@ -32,6 +35,6 @@
         android:id="@+id/listview_todo_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@id/layout_user_details" />
 </RelativeLayout>
