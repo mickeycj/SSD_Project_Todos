@@ -24,10 +24,12 @@
             android:text="@string/signup_tab"
             android:textSize="13pt"
             android:typeface="serif"
+            android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
-            android:layout_marginLeft="220dp" />
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="5dp" />
     </RelativeLayout>
 
     <TextView

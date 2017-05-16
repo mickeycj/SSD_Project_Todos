@@ -27,12 +27,20 @@
 
     <Button
         android:text="@string/start"
-        android:textSize="20pt"
+        android:textSize="15pt"
         android:typeface="serif"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="175dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="425dp"
+        android:layout_marginBottom="100dp" />
+
+    <Button
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
         android:onClick="onStartClick" />
 </RelativeLayout>
