@@ -46,7 +46,9 @@ public class OnlineDatabase extends AbstractDatabase {
                             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                                 int id = dataSnapshot.child("id").getValue(Integer.class);
                                 String name = dataSnapshot.child("name").getValue(String.class);
+                                boolean done = dataSnapshot.child("done").getValue(Boolean.class);
                                 final Item item = new Item(id, name);
+                                item.setDone(done);
                                 todo.addItem(item);
                             }
 
