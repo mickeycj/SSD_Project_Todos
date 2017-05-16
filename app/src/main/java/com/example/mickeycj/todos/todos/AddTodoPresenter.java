@@ -25,7 +25,7 @@ public class AddTodoPresenter {
     public boolean submit() {
         String name = view.getTodoNameFromEditText();
         if (name != null && !name.equals("")) {
-            user.addTodo(new Todo(name, view.isImportantCheckboxChecked()));
+            user.addTodo(new Todo(user.numTodos(), name, view.isImportantCheckboxChecked()));
             return true;
         }
         return false;

@@ -14,22 +14,27 @@ import java.util.TimeZone;
 
 public class Todo implements Parcelable {
 
+    private final int id;
     private String name;
     private boolean important;
     private ArrayList<Item> items;
 
-    public Todo(String name, boolean important) {
+    public Todo(int id, String name, boolean important) {
+        this.id = id;
         this.name = name;
         this.important = important;
         this.items = new ArrayList<>();
     }
 
     public Todo(Parcel in) {
+        this.id = in.readInt();
         this.name = in.readString();
         this.important = in.readByte() == 1;
         this.items = new ArrayList<>();
         in.readList(this.items, Item.class.getClassLoader());
     }
+
+    public int getId() { return id; }
 
     public String getName() { return name; }
 
@@ -60,6 +65,7 @@ public class Todo implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(name);
         dest.writeByte((byte)((important) ? 1 : 0));
         dest.writeList(items);

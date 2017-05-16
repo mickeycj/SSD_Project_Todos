@@ -1,6 +1,7 @@
 package com.example.mickeycj.todos.login;
 
 import com.example.mickeycj.todos.data.Database;
+import com.example.mickeycj.todos.data.OnlineDatabase;
 import com.example.mickeycj.todos.data.User;
 
 /**
@@ -12,8 +13,8 @@ public class LoginPresenter {
     private Database database;
     private LoginView view;
 
-    public LoginPresenter(Database database, LoginView view) {
-        this.database = database;
+    public LoginPresenter(LoginView view) {
+        this.database = OnlineDatabase.getInstance();
         this.view = view;
     }
 

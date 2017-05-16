@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
-import com.example.mickeycj.todos.data.LocalDatabase;
+import com.example.mickeycj.todos.data.OnlineDatabase;
 import com.example.mickeycj.todos.data.User;
 
 public class EditTodoActivity extends AppCompatActivity implements EditTodoView {
@@ -54,7 +54,7 @@ public class EditTodoActivity extends AppCompatActivity implements EditTodoView 
     }
 
     private void updateUser(boolean deleted) {
-        LocalDatabase.getInstance().updateUser(user);
+        OnlineDatabase.getInstance().updateUser(user);
         Intent returnedIntent = new Intent();
         returnedIntent.putExtra("user", user);
         returnedIntent.putExtra("deleted", deleted);

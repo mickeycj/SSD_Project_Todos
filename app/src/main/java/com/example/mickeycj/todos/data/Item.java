@@ -9,17 +9,22 @@ import android.os.Parcelable;
 
 public class Item implements Parcelable {
 
+    private final int id;
     private String name;
     private boolean done;
 
-    public Item(String name) {
+    public Item(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 
     public Item(Parcel in) {
+        this.id = in.readInt();
         this.name = in.readString();
         this.done = in.readByte() == 1;
     }
+
+    public int getId() { return id; }
 
     public String getName() { return name; }
 
@@ -36,6 +41,7 @@ public class Item implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(name);
         dest.writeByte((byte)((done) ? 1 : 0));
     }

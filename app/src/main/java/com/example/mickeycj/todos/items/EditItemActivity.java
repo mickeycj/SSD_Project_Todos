@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
-import com.example.mickeycj.todos.data.LocalDatabase;
+import com.example.mickeycj.todos.data.OnlineDatabase;
 import com.example.mickeycj.todos.data.User;
 
 public class EditItemActivity extends AppCompatActivity implements EditItemView {
@@ -56,7 +56,7 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
     }
 
     private void updateUser() {
-        LocalDatabase.getInstance().updateUser(user);
+        OnlineDatabase.getInstance().updateUser(user);
         Intent returnedIntent = new Intent();
         returnedIntent.putExtra("user", user);
         setResult(RESULT_OK, returnedIntent);

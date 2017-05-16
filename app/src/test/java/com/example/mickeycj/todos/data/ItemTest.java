@@ -15,7 +15,7 @@ public class ItemTest {
     private Item item;
 
     @Before
-    public void setUp() { item = new Item("Test item"); }
+    public void setUp() { item = new Item(0, "Test item"); }
 
     @Test
     public void shouldChangeNameAfterEdit() {

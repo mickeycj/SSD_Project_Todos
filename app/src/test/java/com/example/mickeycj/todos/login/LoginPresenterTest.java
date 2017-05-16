@@ -1,7 +1,5 @@
 package com.example.mickeycj.todos.login;
 
-import com.example.mickeycj.todos.data.LocalDatabase;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
@@ -25,7 +23,7 @@ public class LoginPresenterTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        presenter = new LoginPresenter(LocalDatabase.getInstance(), view);
+        presenter = new LoginPresenter(view);
     }
 
     @Test

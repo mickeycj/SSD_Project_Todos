@@ -25,7 +25,7 @@ public class AddTodoPresenterTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        presenter = new AddTodoPresenter(new User("test@gmail.com", "test", "password"), view);
+        presenter = new AddTodoPresenter(new User(0, "test@gmail.com", "test", "password"), view);
     }
 
     @Test

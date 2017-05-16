@@ -24,7 +24,7 @@ public class AddItemPresenter {
     public boolean submit() {
         String name = view.getItemNameFromEditText();
         if (name != null && !name.equals("")) {
-            user.addItemTo(todoIndex, new Item(name));
+            user.addItemTo(todoIndex, new Item(user.getTodo(todoIndex).numItems(), name));
             return true;
         }
         return false;

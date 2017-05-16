@@ -17,7 +17,7 @@ public class TodoTest {
     private Todo todo;
 
     @Before
-    public void setUp() { todo = new Todo("Test todo", false); }
+    public void setUp() { todo = new Todo(0, "Test todo", false); }
 
     @Test
     public void shouldChangeNameAfterEdit() {
@@ -34,24 +34,24 @@ public class TodoTest {
     @Test
     public void shouldAddOneItem() {
         todo.clearItems();
-        todo.addItem(new Item("Test item"));
+        todo.addItem(new Item(0, "Test item"));
         assertEquals(1, todo.numItems());
     }
 
     @Test
     public void shouldAddTwoItems() {
         todo.clearItems();
-        todo.addItem(new Item("Test item 1"));
-        todo.addItem(new Item("Test item 2"));
+        todo.addItem(new Item(0, "Test item 1"));
+        todo.addItem(new Item(1, "Test item 2"));
         assertEquals(2, todo.numItems());
     }
 
     @Test
     public void shouldEditOnlyTheSpecifiedItem() {
         todo.clearItems();
-        todo.addItem(new Item("Test item 1"));
-        todo.addItem(new Item("Test item 2"));
-        todo.addItem(new Item("Test item 3"));
+        todo.addItem(new Item(0, "Test item 1"));
+        todo.addItem(new Item(1, "Test item 2"));
+        todo.addItem(new Item(2, "Test item 3"));
         todo.editItem(1, "Test item 2 - Edited", true);
         assertEquals("Test item 1", todo.getItem(0).getName());
         assertFalse(todo.getItem(0).isDone());
@@ -64,7 +64,7 @@ public class TodoTest {
     @Test
     public void shouldMarkTheSpecifiedItemAsDone() {
         todo.clearItems();
-        todo.addItem(new Item("Test item"));
+        todo.addItem(new Item(0, "Test item"));
         todo.markItemAsDone(0);
         assertTrue(todo.getItem(0).isDone());
     }
@@ -72,9 +72,9 @@ public class TodoTest {
     @Test
     public void shouldDeleteOnlyTheSpecifiedItem() {
         todo.clearItems();
-        todo.addItem(new Item("Test item 1"));
-        todo.addItem(new Item("Test item 2"));
-        todo.addItem(new Item("Test item 3"));
+        todo.addItem(new Item(0, "Test item 1"));
+        todo.addItem(new Item(1, "Test item 2"));
+        todo.addItem(new Item(2, "Test item 3"));
         assertEquals(3, todo.numItems());
         todo.deleteItem(0);
         assertEquals(2, todo.numItems());

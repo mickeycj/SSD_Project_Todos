@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
-import com.example.mickeycj.todos.data.LocalDatabase;
+import com.example.mickeycj.todos.data.OnlineDatabase;
 import com.example.mickeycj.todos.data.User;
 
 public class AddItemActivity extends AppCompatActivity implements AddItemView {
@@ -52,7 +52,7 @@ public class AddItemActivity extends AppCompatActivity implements AddItemView {
 
     private void addNewItem() {
         if (presenter.submit()) {
-            LocalDatabase.getInstance().updateUser(user);
+            OnlineDatabase.getInstance().updateUser(user);
             Intent returnedIntent = new Intent();
             returnedIntent.putExtra("user", user);
             setResult(RESULT_OK, returnedIntent);

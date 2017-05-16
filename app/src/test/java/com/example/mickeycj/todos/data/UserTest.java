@@ -17,29 +17,29 @@ public class UserTest {
     private User user;
 
     @Before
-    public void setUp() { user = new User("test@gmail.com", "Test", "12345678"); }
+    public void setUp() { user = new User(0, "test@gmail.com", "Test", "12345678"); }
 
     @Test
     public void shouldAddOneTodo() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo", false));
+        user.addTodo(new Todo(0, "Test todo", false));
         assertEquals(1, user.numTodos());
     }
 
     @Test
     public void shouldAddTwoTodos() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo 1", false));
-        user.addTodo(new Todo("Test todo 2", false));
+        user.addTodo(new Todo(0, "Test todo 1", false));
+        user.addTodo(new Todo(1, "Test todo 2", false));
         assertEquals(2, user.numTodos());
     }
 
     @Test
     public void shouldEditOnlyTheSpecifiedTodo() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo 1", false));
-        user.addTodo(new Todo("Test todo 2", false));
-        user.addTodo(new Todo("Test todo 3", false));
+        user.addTodo(new Todo(0, "Test todo 1", false));
+        user.addTodo(new Todo(1, "Test todo 2", false));
+        user.addTodo(new Todo(2, "Test todo 3", false));
         user.editTodo(1, "Test todo 2 - Edited", true);
         assertEquals("Test todo 1", user.getTodo(0).getName());
         assertFalse(user.getTodo(0).isImportant());
@@ -52,9 +52,9 @@ public class UserTest {
     @Test
     public void shouldDeleteOnlyTheSpecifiedTodo() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo 1", false));
-        user.addTodo(new Todo("Test todo 2", false));
-        user.addTodo(new Todo("Test todo 3", false));
+        user.addTodo(new Todo(0, "Test todo 1", false));
+        user.addTodo(new Todo(1, "Test todo 2", false));
+        user.addTodo(new Todo(2, "Test todo 3", false));
         assertEquals(3, user.numTodos());
         user.deleteTodo(0);
         assertEquals(2, user.numTodos());
@@ -64,29 +64,29 @@ public class UserTest {
     @Test
     public void shouldAddOneItemToTheSpecifiedTodo() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo 1", false));
-        user.addTodo(new Todo("Test todo 2", false));
-        user.addItemTo(0, new Item("Test item"));
+        user.addTodo(new Todo(0, "Test todo 1", false));
+        user.addTodo(new Todo(1, "Test todo 2", false));
+        user.addItemTo(0, new Item(0, "Test item"));
         assertEquals(1, user.getTodo(0).numItems());
     }
 
     @Test
     public void shouldAddTwoItemsToTheSpecifiedTodo() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo 1", false));
-        user.addTodo(new Todo("Test todo 2", false));
-        user.addItemTo(0, new Item("Test item 1"));
-        user.addItemTo(0, new Item("Test item 2"));
+        user.addTodo(new Todo(0, "Test todo 1", false));
+        user.addTodo(new Todo(1 ,"Test todo 2", false));
+        user.addItemTo(0, new Item(0, "Test item 1"));
+        user.addItemTo(0, new Item(1 ,"Test item 2"));
         assertEquals(2, user.getTodo(0).numItems());
     }
 
     @Test
     public void shouldAddTwoItemsToTwoDifferentTodos() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo 1", false));
-        user.addTodo(new Todo("Test todo 2", false));
-        user.addItemTo(0, new Item("Test item 1"));
-        user.addItemTo(1, new Item("Test item 2"));
+        user.addTodo(new Todo(0, "Test todo 1", false));
+        user.addTodo(new Todo(1, "Test todo 2", false));
+        user.addItemTo(0, new Item(0, "Test item 1"));
+        user.addItemTo(1, new Item(0, "Test item 2"));
         assertEquals(1, user.getTodo(0).numItems());
         assertEquals("Test item 1", user.getTodo(0).getItem(0).getName());
         assertEquals(1, user.getTodo(1).numItems());
@@ -96,11 +96,11 @@ public class UserTest {
     @Test
     public void shouldEditOnlyTheSpecifiedItemFromTheSpecifiedTodo() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo 1", false));
-        user.addTodo(new Todo("Test todo 2", false));
-        user.addItemTo(0, new Item("Test item 1"));
-        user.addItemTo(0, new Item("Test item 2"));
-        user.addItemTo(0, new Item("Test item 3"));
+        user.addTodo(new Todo(0, "Test todo 1", false));
+        user.addTodo(new Todo(1, "Test todo 2", false));
+        user.addItemTo(0, new Item(0, "Test item 1"));
+        user.addItemTo(0, new Item(1, "Test item 2"));
+        user.addItemTo(0, new Item(2 ,"Test item 3"));
         user.editItemOf(0, 1, "Test item 2 - Edited", true);
         assertEquals("Test item 1", user.getTodo(0).getItem(0).getName());
         assertFalse(user.getTodo(0).getItem(0).isDone());
@@ -113,8 +113,8 @@ public class UserTest {
     @Test
     public void shouldMarkTheSpecifiedItemFromTheSpecifiedTodoAsDone() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo", false));
-        user.addItemTo(0, new Item("Test item"));
+        user.addTodo(new Todo(0, "Test todo", false));
+        user.addItemTo(0, new Item(0, "Test item"));
         user.markItemAsDone(0, 0);
         assertTrue(user.getTodo(0).getItem(0).isDone());
     }
@@ -122,11 +122,11 @@ public class UserTest {
     @Test
     public void shouldDeleteOnlyTheSpecifiedItemFromTheSpecifiedTodo() {
         user.clearTodos();
-        user.addTodo(new Todo("Test todo 1", false));
-        user.addTodo(new Todo("Test todo 2", false));
-        user.addItemTo(0, new Item("Test item 1"));
-        user.addItemTo(0, new Item("Test item 2"));
-        user.addItemTo(0, new Item("Test item 3"));
+        user.addTodo(new Todo(0, "Test todo 1", false));
+        user.addTodo(new Todo(1, "Test todo 2", false));
+        user.addItemTo(0, new Item(0, "Test item 1"));
+        user.addItemTo(0, new Item(1, "Test item 2"));
+        user.addItemTo(0, new Item(2, "Test item 3"));
         assertEquals(3, user.getTodo(0).numItems());
         user.deleteItemFrom(0, 0);
         assertEquals(2, user.getTodo(0).numItems());

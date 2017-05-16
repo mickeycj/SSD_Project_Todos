@@ -12,13 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
-import com.example.mickeycj.todos.data.Database;
-import com.example.mickeycj.todos.data.LocalDatabase;
 import com.example.mickeycj.todos.login.LoginActivity;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
-    private Database database;
     private SignUpPresenter presenter;
 
     private EditText emailEditText;
@@ -31,8 +28,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        database = LocalDatabase.getInstance();
-        presenter = new SignUpPresenter(database, this);
+        presenter = new SignUpPresenter(this);
 
         initViewHolders();
 

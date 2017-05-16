@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mickeycj.todos.R;
+import com.example.mickeycj.todos.data.OnlineDatabase;
 import com.example.mickeycj.todos.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        OnlineDatabase.getInstance();
     }
 
     public void onStartClick(View view) {
