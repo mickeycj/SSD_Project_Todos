@@ -6,6 +6,6 @@ Todos app provides means for users to manage their todo-lists, and add details t
 - Create todos and set their importance.
 - Add items to each todos, and mark them as done once finished.
 
-## Recommendation
-- Optimized for screen resolution of 1440x2560.
-
+## Notes
+- Optimized for screen resolution of 1080x1920.
+- Alternate screen resolution(1440x2560) is on the 'experimental' branch.

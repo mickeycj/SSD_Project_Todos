@@ -8,49 +8,49 @@
     <TextView
         android:id="@+id/textview_add_todo"
         android:text="@string/add_todo"
-        android:textSize="20pt"
+        android:textSize="18pt"
         android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true" />
     
     <EditText
         android:id="@+id/edittext_new_todo_name"
         android:inputType="textLongMessage"
         android:hint="@string/hint_todo_name"
-        android:textSize="15pt"
+        android:textSize="12pt"
         android:typeface="serif"
         android:imeOptions="actionDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/textview_add_todo" />
 
     <CheckBox
         android:id="@+id/checkbox_new_todo_important"
         android:text="@string/important"
-        android:textSize="13pt"
+        android:textSize="10pt"
         android:typeface="serif"
         android:layoutDirection="rtl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="25dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_below="@id/edittext_new_todo_name" />
 
     <Button
         android:text="@string/add_text"
-        android:textSize="13pt"
+        android:textSize="10pt"
         android:typeface="serif"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="125dp"
         android:layout_marginLeft="125dp"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="150dp"
         android:layout_below="@id/edittext_new_todo_name"
         android:onClick="onAddNewTodoClick" />
 </RelativeLayout>

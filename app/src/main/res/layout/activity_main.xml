@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,16 +8,16 @@
     <TextView
         android:id="@+id/textview_partial_app_name_1"
         android:text="@string/partial_app_name_1"
-        android:textSize="30pt"
+        android:textSize="22pt"
         android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp" />
+        android:layout_marginTop="125dp" />
 
     <TextView
         android:text="@string/app_name_partial_2"
-        android:textSize="30pt"
+        android:textSize="22pt"
         android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,15 +26,14 @@
 
     <Button
         android:text="@string/start"
-        android:textSize="15pt"
+        android:textSize="12pt"
         android:typeface="serif"
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="425dp"
-        android:layout_marginBottom="100dp" />
+        android:layout_marginTop="375dp"
+        android:layout_marginBottom="150dp" />
 
     <Button
         android:background="@android:color/transparent"

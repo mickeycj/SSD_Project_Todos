@@ -8,36 +8,36 @@
     <TextView
         android:id="@+id/textview_edit_item"
         android:text="@string/edit_item"
-        android:textSize="20pt"
+        android:textSize="18pt"
         android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/edittext_edit_item_name"
         android:inputType="textLongMessage"
         android:hint="@string/hint_edit_item_name"
-        android:textSize="15pt"
+        android:textSize="12pt"
         android:typeface="serif"
         android:imeOptions="actionDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/textview_edit_item" />
 
     <CheckBox
         android:id="@+id/checkbox_edit_item_done"
         android:text="@string/done"
-        android:textSize="13pt"
+        android:textSize="10pt"
         android:typeface="serif"
         android:layoutDirection="rtl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="25dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_below="@id/edittext_edit_item_name" />
@@ -45,27 +45,27 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="150dp"
         android:layout_below="@id/edittext_edit_item_name">
 
         <Button
             android:text="@string/edit_text"
-            android:textSize="13pt"
+            android:textSize="10pt"
             android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="220dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginRight="225dp"
+            android:layout_marginLeft="25dp"
             android:onClick="onEditItemClick" />
 
         <Button
             android:text="@string/delete_text"
-            android:textSize="13pt"
+            android:textSize="10pt"
             android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="220dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="225dp"
             android:onClick="onDeleteItemClick" />
     </RelativeLayout>
 </RelativeLayout>
