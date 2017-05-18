@@ -6,7 +6,6 @@
     <string name="login_tab">LOGIN</string>
     <string name="signup_tab">SIGN-UP</string>
     <string name="login">GO!</string>
-    <string name="ok">OK</string>
     <string name="signup">GET STARTED!</string>
     <string name="email">Email</string>
     <string name="hint_email">example@gmail.com</string>

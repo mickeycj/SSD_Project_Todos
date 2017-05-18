@@ -85,7 +85,7 @@ public class ItemsActivity extends AppCompatActivity implements ItemsView {
 
     @Override
     public void onBackPressed() {
-        OnlineDatabase.getInstance().updateUser(user);
+        OnlineDatabase.getInstance().updateUser(OnlineDatabase.getInstance().getCurrentEmail(), user);
         Intent returnedIntent = new Intent();
         returnedIntent.putExtra("user", user);
         setResult(RESULT_OK, returnedIntent);

@@ -56,7 +56,7 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
     }
 
     private void updateUser() {
-        OnlineDatabase.getInstance().updateUser(user);
+        OnlineDatabase.getInstance().updateUser(OnlineDatabase.getInstance().getCurrentEmail(), user);
         Intent returnedIntent = new Intent();
         returnedIntent.putExtra("user", user);
         setResult(RESULT_OK, returnedIntent);
@@ -69,7 +69,7 @@ public class EditItemActivity extends AppCompatActivity implements EditItemView 
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("Item Name Cannot Be Empty!")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             setItemNameEditText();

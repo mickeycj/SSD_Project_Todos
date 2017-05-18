@@ -1,8 +1,7 @@
 package com.example.mickeycj.todos.signup;
 
-import android.content.DialogInterface;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -22,6 +21,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     private EditText usernameEditText;
     private EditText passwordEditText;
     private EditText confirmPasswordEditText;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,29 +49,21 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
                 return false;
             }
         });
-    }
-
-    private void returnToLoginActivity() {
-        Intent returnedIntent = new Intent(this, LoginActivity.class);
-        returnedIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        setResult(RESULT_CANCELED, returnedIntent);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Signing up...");
     }
 
     private void signUp() {
         if (presenter.onSignUpClick()) {
             returnToLoginActivity();
             finish();
-        } else {
-            new AlertDialog.Builder(this)
-                    .setTitle("Invalid Sign-Up")
-                    .setMessage("You have entered invalid data.\n\nPlease enter valid sign-up details.")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            presenter.clearEditTexts();
-                        }
-                    }).show();
         }
+    }
+
+    public void returnToLoginActivity() {
+        Intent returnedIntent = new Intent(this, LoginActivity.class);
+        returnedIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        setResult(RESULT_CANCELED, returnedIntent);
     }
 
     public void onLoginTabClick(View view) {
@@ -116,6 +108,12 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void clearConfirmPasswordEditText() { setConfirmPasswordEditText(""); }
+
+    @Override
+    public void showProgressDialog() { progressDialog.show(); }
+
+    @Override
+    public void dismissProgressDialog() { progressDialog.dismiss(); }
 
     @Override
     public void onPause() {

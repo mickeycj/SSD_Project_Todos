@@ -17,4 +17,8 @@ public interface LoginView {
     void clearEmailEditText();
 
     void clearPasswordEditText();
+
+    void showProgressDialog();
+
+    void dismissProgressDialog();
 }

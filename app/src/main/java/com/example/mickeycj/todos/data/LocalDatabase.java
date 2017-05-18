@@ -15,7 +15,7 @@ public class LocalDatabase extends AbstractDatabase {
 
     private LocalDatabase() {
         super();
-        User user1 = new User(users.size(), "mickey@gmail.com", "mickey", "12345678");
+        User user1 = new User(users.size(), "mickey");
         Todo todo11 = new Todo(user1.numTodos(), "Prepare for exams", false);
         Todo todo12 = new Todo(user1.numTodos(), "Finish Arrowverse", true);
         user1.addTodo(todo11);
@@ -24,8 +24,8 @@ public class LocalDatabase extends AbstractDatabase {
         user1.addItemTo(1, new Item(todo12.numItems(), "Finish The Flash"));
         user1.addItemTo(1, new Item(todo12.numItems(), "Finish The Arrow"));
         user1.addItemTo(1, new Item(todo12.numItems(), "Finish Supergirl"));
-        users.put(user1.getEmail(), user1);
-        User user2 = new User(users.size(), "barry@starlabs.com", "barry", "12345678");
+        users.put("mickey@gmail.com", user1);
+        User user2 = new User(users.size(), "barry");
         Todo todo21 = new Todo(user2.numTodos(), "Save Iris", true);
         Todo todo22 = new Todo(user2.numTodos(), "Eat Big Belly Burgers", true);
         user2.addTodo(todo21);
@@ -33,6 +33,6 @@ public class LocalDatabase extends AbstractDatabase {
         user2.addItemTo(0, new Item(todo21.numItems(), "Steal power cell for Speedforce Bazooka"));
         user2.addItemTo(0, new Item(todo21.numItems(), "Trap Savitar in the Speedforce"));
         user2.addItemTo(1, new Item(todo22.numItems(), "Go out with Team Flash"));
-        users.put(user2.getEmail(), user2);
+        users.put("barry@starlabs.com", user2);
     }
 }

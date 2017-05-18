@@ -39,14 +39,14 @@ public class LocalDatabaseTest {
 
     @Test
     public void shouldCreateNewUserAndAddToDatabase() {
-        database.createUser(new User(0, "test@gmail.com", "Test", "12345678"));
+        database.registerUser(null, "test@gmail.com", "Test", "12345678");
         assertNotEquals(null, database.getUser("test@gmail.com"));
     }
 
     @Test
     public void shouldUpdateUserAfterOperations() {
-        database.createUser(new User(0, "test@gmail.com", "Test", "12345678"));
-        database.updateUser(new User(0, "test@gmail.com", "test", "12345678"));
+        database.registerUser(null, "test@gmail.com", "Test", "12345678");
+        database.updateUser("test@gmail.com", new User(0, "test"));
         assertNotEquals(null, database.getUser("test@gmail.com"));
     }
 }

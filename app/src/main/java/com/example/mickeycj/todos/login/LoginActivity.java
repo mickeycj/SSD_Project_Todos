@@ -1,8 +1,7 @@
 package com.example.mickeycj.todos.login;
 
-import android.content.DialogInterface;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -12,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
+import com.example.mickeycj.todos.data.OnlineDatabase;
 import com.example.mickeycj.todos.data.User;
 import com.example.mickeycj.todos.signup.SignUpActivity;
 import com.example.mickeycj.todos.todos.TodosActivity;
@@ -22,11 +22,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     private EditText emailEditText;
     private EditText passwordEditText;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        if (OnlineDatabase.getInstance().isLoggedIn()) {
+            OnlineDatabase.getInstance().logOut();
+        }
 
         presenter = new LoginPresenter(this);
 
@@ -47,25 +51,21 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 return false;
             }
         });
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Logging in...");
     }
 
     private void signIn() {
         User user = presenter.onLoginClick();
         if (user != null) {
-            Intent userIntent = new Intent(this, TodosActivity.class);
-            userIntent.putExtra("user", user);
-            startActivityForResult(userIntent, 0);
-        } else {
-            new AlertDialog.Builder(this)
-                    .setTitle("Invalid Login")
-                    .setMessage("You have entered invalid data.\n\nPlease enter valid login details.")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            presenter.clearEditTexts();
-                        }
-                    }).show();
+            goToTodoList(user);
         }
+    }
+
+    public void goToTodoList(User user) {
+        Intent userIntent = new Intent(this, TodosActivity.class);
+        userIntent.putExtra("user", user);
+        startActivityForResult(userIntent, 0);
     }
 
     public void onSignUpTabClick(View view) {
@@ -93,6 +93,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void clearPasswordEditText() { setPasswordEditText(""); }
+
+    @Override
+    public void showProgressDialog() { progressDialog.show(); }
+
+    @Override
+    public void dismissProgressDialog() { progressDialog.dismiss(); }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -1,5 +1,8 @@
 package com.example.mickeycj.todos.data;
 
+import com.example.mickeycj.todos.login.LoginActivity;
+import com.example.mickeycj.todos.signup.SignUpActivity;
+
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -22,8 +25,20 @@ public abstract class AbstractDatabase implements Database {
     public User getUser(String email) { return users.get(email); }
 
     @Override
-    public boolean createUser(User user) { return users.get(user.getEmail()) == null && users.put(user.getEmail(), user) == null; }
+    public boolean isLoggedIn() { return false; }
 
     @Override
-    public void updateUser(User user) { users.put(user.getEmail(), user); }
+    public String getCurrentEmail() { return null; }
+
+    @Override
+    public User logIn(LoginActivity activity, String email, String password) { return users.get(email); }
+
+    @Override
+    public void logOut() {}
+
+    @Override
+    public boolean registerUser(SignUpActivity activity, String email, String username, String password) { return users.get(email) == null && users.put(email, new User(users.size(), username)) == null; }
+
+    @Override
+    public void updateUser(String email, User user) { users.put(email, user); }
 }

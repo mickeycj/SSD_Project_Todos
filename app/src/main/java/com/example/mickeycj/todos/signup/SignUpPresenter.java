@@ -10,13 +10,9 @@ import com.example.mickeycj.todos.data.User;
 
 public class SignUpPresenter {
 
-    private Database database;
     private SignUpView view;
 
-    public SignUpPresenter(SignUpView view) {
-        this.database = OnlineDatabase.getInstance();
-        this.view = view;
-    }
+    public SignUpPresenter(SignUpView view) { this.view = view; }
 
     public void start() { clearEditTexts(); }
 
@@ -34,6 +30,6 @@ public class SignUpPresenter {
         String passwordConfirmation = view.getPasswordConfirmationFromEditText();
         return email != null && username != null && password != null && passwordConfirmation != null
                 && !email.equals("") && !username.equals("") && !password.equals("") && !passwordConfirmation.equals("")
-                && password.equals(passwordConfirmation) && database.createUser(new User(database.getUsers().size(), email, username, password));
+                && password.equals(passwordConfirmation) && OnlineDatabase.getInstance().registerUser(((SignUpActivity) view), email, username, password);
     }
 }

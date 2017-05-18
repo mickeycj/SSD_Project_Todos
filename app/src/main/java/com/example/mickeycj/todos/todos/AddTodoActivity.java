@@ -53,7 +53,7 @@ public class AddTodoActivity extends AppCompatActivity implements AddTodoView {
 
     private void addNewTodo() {
         if (presenter.submit()) {
-            OnlineDatabase.getInstance().updateUser(user);
+            OnlineDatabase.getInstance().updateUser(OnlineDatabase.getInstance().getCurrentEmail(), user);
             Intent returnedIntent = new Intent();
             returnedIntent.putExtra("user", user);
             setResult(RESULT_OK, returnedIntent);
@@ -61,7 +61,7 @@ public class AddTodoActivity extends AppCompatActivity implements AddTodoView {
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("Todo Name Cannot Be Empty!")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             clearTodoNameEditText();

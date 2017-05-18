@@ -10,13 +10,9 @@ import com.example.mickeycj.todos.data.User;
 
 public class LoginPresenter {
 
-    private Database database;
     private LoginView view;
 
-    public LoginPresenter(LoginView view) {
-        this.database = OnlineDatabase.getInstance();
-        this.view = view;
-    }
+    public LoginPresenter(LoginView view) { this.view = view; }
 
     public void start() { clearEditTexts(); }
 
@@ -26,7 +22,6 @@ public class LoginPresenter {
     }
 
     public User onLoginClick() {
-        User user = database.getUser(view.getEmailFromEditText());
-        return (user == null || !view.getPasswordFromEditText().equals(user.getPassword())) ? null : user;
+        return OnlineDatabase.getInstance().logIn(((LoginActivity) view), view.getEmailFromEditText(), view.getPasswordFromEditText());
     }
 }

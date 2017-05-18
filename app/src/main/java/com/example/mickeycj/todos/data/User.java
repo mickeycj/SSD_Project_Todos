@@ -12,35 +12,25 @@ import java.util.ArrayList;
 public class User implements Parcelable {
 
     private final int id;
-    private final String email;
     private final String username;
-    private final String password;
     private ArrayList<Todo> todos;
 
-    public User(int id, String email, String username, String password) {
+    public User(int id, String username) {
         this.id = id;
-        this.email = email;
         this.username = username;
-        this.password = password;
         this.todos = new ArrayList<>();
     }
 
     public User(Parcel in) {
         this.id = in.readInt();
-        this.email = in.readString();
         this.username = in.readString();
-        this.password = in.readString();
         this.todos = new ArrayList<>();
         in.readList(this.todos, Todo.class.getClassLoader());
     }
 
     public int getId() { return id; }
 
-    public String getEmail() { return email; }
-
     public String getUsername() { return username; }
-
-    public String getPassword() { return password; }
 
     public ArrayList<Todo> getTodos() { return todos; }
 
@@ -67,9 +57,7 @@ public class User implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(email);
         dest.writeString(username);
-        dest.writeString(password);
         dest.writeList(todos);
     }
 

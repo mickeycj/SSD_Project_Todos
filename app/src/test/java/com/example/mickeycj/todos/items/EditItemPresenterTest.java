@@ -27,7 +27,7 @@ public class EditItemPresenterTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        User user = new User(0, "test@gmail.com", "test", "password");
+        User user = new User(0, "test");
         user.addTodo(new Todo(0, "Test todo", false));
         user.addItemTo(0, new Item(0, "Test item"));
         presenter = new EditItemPresenter(user, 0, 0, view);

@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mickeycj.todos.R;
+import com.example.mickeycj.todos.data.OnlineDatabase;
 import com.example.mickeycj.todos.data.Todo;
 import com.example.mickeycj.todos.data.User;
 import com.example.mickeycj.todos.items.ItemsActivity;
@@ -68,6 +69,7 @@ public class TodosActivity extends AppCompatActivity implements TodosView {
 
     @Override
     public void onBackPressed() {
+        OnlineDatabase.getInstance().logOut();
         setResult(RESULT_CANCELED);
         super.onBackPressed();
     }

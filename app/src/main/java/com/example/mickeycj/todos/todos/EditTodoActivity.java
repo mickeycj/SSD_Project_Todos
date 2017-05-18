@@ -54,7 +54,7 @@ public class EditTodoActivity extends AppCompatActivity implements EditTodoView 
     }
 
     private void updateUser(boolean deleted) {
-        OnlineDatabase.getInstance().updateUser(user);
+        OnlineDatabase.getInstance().updateUser(OnlineDatabase.getInstance().getCurrentEmail(), user);
         Intent returnedIntent = new Intent();
         returnedIntent.putExtra("user", user);
         returnedIntent.putExtra("deleted", deleted);
@@ -68,7 +68,7 @@ public class EditTodoActivity extends AppCompatActivity implements EditTodoView 
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("Todo Name Cannot Be Empty!")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             setTodoNameEditText();

@@ -17,7 +17,7 @@ public class UserTest {
     private User user;
 
     @Before
-    public void setUp() { user = new User(0, "test@gmail.com", "Test", "12345678"); }
+    public void setUp() { user = new User(0, "Test"); }
 
     @Test
     public void shouldAddOneTodo() {

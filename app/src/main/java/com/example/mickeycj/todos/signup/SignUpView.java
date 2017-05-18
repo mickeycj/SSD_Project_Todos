@@ -29,4 +29,8 @@ public interface SignUpView {
     void clearPasswordEditText();
 
     void clearConfirmPasswordEditText();
+
+    void showProgressDialog();
+
+    void dismissProgressDialog();
 }
